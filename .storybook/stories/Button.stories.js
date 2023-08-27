@@ -6,10 +6,12 @@ const ButtonMeta = {
   title: "Button",
   component: Button,
   argTypes: {
-    onPress: { action: "pressed the button" },
+    color: { control: "radio", options: ["default", "success", "destructive"] },
+    type: { control: "radio", options: ["default", "pill"] },
   },
   args: {
-    text: "Hello world",
+    text: "Tap here",
+    color: "success",
   },
   decorators: [
     (Story) => (
@@ -23,9 +25,3 @@ const ButtonMeta = {
 export default ButtonMeta;
 
 export const Basic = {};
-
-export const AnotherExample = {
-  args: {
-    text: "Another example",
-  },
-};
