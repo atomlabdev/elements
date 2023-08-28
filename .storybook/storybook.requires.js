@@ -47,6 +47,7 @@ try {
 
 const getStories = () => {
   return {
+    "./.storybook/stories/Box.stories.js": require("./stories/Box.stories.js"),
     "./.storybook/stories/Button.stories.js": require("./stories/Button.stories.js"),
   };
 };
