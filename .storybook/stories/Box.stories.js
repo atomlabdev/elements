@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { Box } from "../../src/components/Box";
+import tailwind from "twrnc";
 
 const BoxMeta = {
   title: "Box",
@@ -8,15 +9,18 @@ const BoxMeta = {
   argTypes: {
     color: { control: "radio", options: ["default", "success", "destructive"] },
   },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
 };
 
 export default BoxMeta;
 
-export const Basic = {};
+export const Basic = {
+  render: (args) => {
+    return (
+      <View style={tailwind`flex-1 items-center justify-center`}>
+        <Box {...args}>
+          <Text>This is a box</Text>
+        </Box>
+      </View>
+    );
+  },
+};

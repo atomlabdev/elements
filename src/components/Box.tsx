@@ -6,9 +6,10 @@ type BoxColor = "default" | "success" | "destructive";
 type BoxProps = {
   color?: BoxColor;
   styles?: ViewStyle;
+  children?: React.ReactNode;
 };
 
-export const Box = ({ color, styles }: BoxProps) => {
+export const Box = ({ color, styles, children }: BoxProps) => {
   const getBgColor = (color?: BoxColor) => {
     if (color === "success") {
       return "bg-green-200";
@@ -23,7 +24,7 @@ export const Box = ({ color, styles }: BoxProps) => {
 
   return (
     <View style={[tailwind`${getBgColor(color)} px-4 py-2`, styles]}>
-      <Text style={tailwind`text-slate-900 text-lg`}>Box</Text>
+      {children}
     </View>
   );
 };

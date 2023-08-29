@@ -1,6 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import { Button } from "../../src/components/Button";
+import tailwind from "twrnc";
 
 const ButtonMeta = {
   title: "Button",
@@ -13,15 +14,16 @@ const ButtonMeta = {
     text: "Tap here",
     color: "success",
   },
-  decorators: [
-    (Story) => (
-      <View style={{ alignItems: "center", justifyContent: "center", flex: 1 }}>
-        <Story />
-      </View>
-    ),
-  ],
 };
 
 export default ButtonMeta;
 
-export const Basic = {};
+export const Basic = {
+  render: (args) => {
+    return (
+      <View style={tailwind`flex-1 items-center justify-center`}>
+        <Button {...args} />
+      </View>
+    );
+  },
+};
