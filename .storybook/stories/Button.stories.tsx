@@ -18,7 +18,20 @@ const ButtonMeta = {
 
 export default ButtonMeta;
 
-export const Basic = {
+export const Default = {
+  render: (args) => {
+    return (
+      <View style={tailwind`flex-1 items-center justify-center`}>
+        <Button {...args} />
+      </View>
+    );
+  },
+};
+
+export const Pill = {
+  args: {
+    type: "pill",
+  },
   render: (args) => {
     return (
       <View style={tailwind`flex-1 items-center justify-center`}>

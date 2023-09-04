@@ -20,7 +20,25 @@ const BoxMeta = {
 
 export default BoxMeta;
 
-export const Basic = {
+export const Default = {
+  render: (args) => {
+    return (
+      <View style={tailwind`flex-1 items-center justify-center`}>
+        <Avatar
+          source={{
+            uri: "https://images.unsplash.com/photo-1676824452052-b030b9026b5b",
+          }}
+          {...args}
+        />
+      </View>
+    );
+  },
+};
+
+export const Rounded = {
+  args: {
+    type: "rounded",
+  },
   render: (args) => {
     return (
       <View style={tailwind`flex-1 items-center justify-center`}>

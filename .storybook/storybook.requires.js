@@ -47,6 +47,7 @@ try {
 
 const getStories = () => {
   return {
+    "./.storybook/stories/Alert.stories.tsx": require("./stories/Alert.stories.tsx"),
     "./.storybook/stories/Avatar.stories.tsx": require("./stories/Avatar.stories.tsx"),
     "./.storybook/stories/Badge.stories.tsx": require("./stories/Badge.stories.tsx"),
     "./.storybook/stories/Box.stories.tsx": require("./stories/Box.stories.tsx"),
