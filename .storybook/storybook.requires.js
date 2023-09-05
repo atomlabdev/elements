@@ -52,6 +52,8 @@ const getStories = () => {
     "./.storybook/stories/Badge.stories.tsx": require("./stories/Badge.stories.tsx"),
     "./.storybook/stories/Box.stories.tsx": require("./stories/Box.stories.tsx"),
     "./.storybook/stories/Button.stories.tsx": require("./stories/Button.stories.tsx"),
+    "./.storybook/stories/Card.stories.tsx": require("./stories/Card.stories.tsx"),
+    "./.storybook/stories/Image.stories.tsx": require("./stories/Image.stories.tsx"),
   };
 };
 
