@@ -5,7 +5,7 @@ import tailwind from "twrnc";
 import { ProgressBar } from "../../src/components/ProgressBar";
 
 const ProgressBarMeta = {
-  title: "Progress Bar",
+  title: "Components/Progress Bar",
 };
 
 export default ProgressBarMeta;

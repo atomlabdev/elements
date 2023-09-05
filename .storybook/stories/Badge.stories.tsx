@@ -4,7 +4,7 @@ import { Badge } from "../../src/components/Badge";
 import tailwind from "twrnc";
 
 const BoxMeta = {
-  title: "Badge",
+  title: "Components/Badge",
   component: Badge,
   args: {
     text: "Badge",

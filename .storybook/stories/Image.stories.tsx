@@ -8,7 +8,7 @@ import {
 import tailwind from "twrnc";
 
 const ImageMeta = {
-  title: "Image",
+  title: "Components/Image",
   component: Image,
 };
 

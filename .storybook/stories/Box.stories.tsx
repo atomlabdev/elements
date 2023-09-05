@@ -4,7 +4,7 @@ import { Box } from "../../src/components/Box";
 import tailwind from "twrnc";
 
 const BoxMeta = {
-  title: "Box",
+  title: "Components/Box",
   component: Box,
   argTypes: {
     color: { control: "radio", options: ["default", "success", "destructive"] },

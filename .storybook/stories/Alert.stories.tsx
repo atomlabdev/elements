@@ -4,7 +4,7 @@ import tailwind from "twrnc";
 import { Alert } from "../../src/components/Alert";
 
 const AlertMeta = {
-  title: "Alert",
+  title: "Components/Alert",
   component: Alert,
   argTypes: {
     color: {

@@ -9,7 +9,7 @@ import {
 import tailwind from "twrnc";
 
 const CardMeta = {
-  title: "Card",
+  title: "Components/Card",
   component: Card,
 };
 

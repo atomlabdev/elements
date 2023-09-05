@@ -4,7 +4,7 @@ import { Button } from "../../src/components/Button";
 import tailwind from "twrnc";
 
 const ButtonMeta = {
-  title: "Button",
+  title: "Components/Button",
   component: Button,
   argTypes: {
     color: { control: "radio", options: ["default", "success", "destructive"] },

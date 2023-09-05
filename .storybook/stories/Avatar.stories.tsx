@@ -4,7 +4,7 @@ import { Avatar } from "../../src/components/Avatar";
 import tailwind from "twrnc";
 
 const BoxMeta = {
-  title: "Avatar",
+  title: "Components/Avatar",
   component: Avatar,
   argTypes: {
     size: {

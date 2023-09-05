@@ -17,7 +17,7 @@ import { BulletList } from "../../src/components/List";
 import tailwind from "twrnc";
 
 const ListMeta = {
-  title: "List",
+  title: "Components/List",
 };
 
 export default ListMeta;
