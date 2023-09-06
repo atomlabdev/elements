@@ -2,84 +2,33 @@ import { useState } from "react";
 import { Pressable, Text } from "react-native";
 import tailwind from "twrnc";
 
-type ButtonColor = "success" | "destructive";
-type ButtonType = "bordered" | "pill";
+type ButtonVariant = "default" | "success" | "destructive";
 
 type ButtonProps = {
-  type?: ButtonType;
-  color?: ButtonColor;
-  text?: string;
+  variant?: ButtonVariant;
+  text: string;
 };
 
-const colors = {
-  default: {
-    bg: "bg-slate-800 dark:bg-slate-100",
-    hover: "bg-slate-900 dark:bg-slate-200",
-    text: "text-white dark:text-slate-900",
-  },
-  success: {
-    bg: "bg-green-500",
-    hover: "bg-green-600",
-    text: "text-green-50",
-  },
-  destructive: {
-    bg: "bg-red-500",
-    hover: "bg-red-600",
-    text: "text-red-50",
-  },
-};
-
-const types = {
-  default: "rounded-lg",
-  pill: "rounded-full",
-};
-
-const getBgColor = (color: ButtonColor) => {
-  if (color) {
-    return colors[color].bg;
-  }
-
-  return colors["default"].bg;
-};
-
-const getHoverBgColor = (color: ButtonColor) => {
-  if (color) {
-    return colors[color].hover;
-  }
-
-  return colors["default"].hover;
-};
-
-const getTextColor = (color: ButtonColor) => {
-  if (color) {
-    return colors[color].text;
-  }
-
-  return colors["default"].text;
-};
-
-const getType = (type) => {
-  if (type) {
-    return types[type];
-  }
-
-  return types["default"];
-};
-
-export const Button = ({ text, color, type }: ButtonProps) => {
+export const Button = ({ text, variant = "default" }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  const getStyle = () => {
-    let styleArr = ["h-12 px-4 items-center justify-center"];
-    styleArr.push(getType(type));
-    styleArr.push(getBgColor(color));
-
-    if (hovered || pressed) {
-      styleArr.push(getHoverBgColor(color));
-    }
-
-    return tailwind`${styleArr.join(" ")}`;
+  const styles = {
+    default: {
+      bg: tailwind`bg-slate-900 dark:bg-slate-100`,
+      hover: tailwind`bg-slate-900 dark:bg-slate-200`,
+      text: tailwind`text-white dark:text-slate-900`,
+    },
+    success: {
+      bg: tailwind`bg-green-700`,
+      hover: tailwind`bg-green-800`,
+      text: tailwind`text-green-50`,
+    },
+    destructive: {
+      bg: tailwind`bg-red-700`,
+      hover: tailwind`bg-red-800`,
+      text: tailwind`text-red-50`,
+    },
   };
 
   return (
@@ -88,12 +37,14 @@ export const Button = ({ text, color, type }: ButtonProps) => {
       onHoverOut={() => setHovered(false)}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
-      style={getStyle()}
+      style={[
+        tailwind`h-10 px-4 items-center justify-center rounded-md`,
+        styles[variant].bg,
+        hovered || pressed ? styles[variant].hover : null,
+      ]}
     >
       {text ? (
-        <Text style={tailwind`${getTextColor(color)} font-bold text-base`}>
-          {text}
-        </Text>
+        <Text style={[tailwind`font-bold`, styles[variant].text]}>{text}</Text>
       ) : null}
     </Pressable>
   );
