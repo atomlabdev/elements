@@ -1,15 +1,20 @@
 import { useState } from "react";
-import { Pressable, Text } from "react-native";
+import { Pressable, PressableProps, Text } from "react-native";
 import tailwind from "twrnc";
 
 type ButtonVariant = "default" | "success" | "destructive";
 
-type ButtonProps = {
+interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
   text: string;
-};
+  onPress?: () => void;
+}
 
-export const Button = ({ text, variant = "default" }: ButtonProps) => {
+export const Button = ({
+  text,
+  variant = "default",
+  ...props
+}: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
   const [pressed, setPressed] = useState(false);
 
@@ -42,6 +47,7 @@ export const Button = ({ text, variant = "default" }: ButtonProps) => {
         styles[variant].bg,
         hovered || pressed ? styles[variant].hover : null,
       ]}
+      {...props}
     >
       {text ? (
         <Text style={[tailwind`font-bold`, styles[variant].text]}>{text}</Text>

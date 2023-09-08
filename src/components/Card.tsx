@@ -6,7 +6,7 @@ type CardImageProps = {
 };
 
 type CardContentProps = {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
 };
 
 type CardTitleProps = {
@@ -14,7 +14,7 @@ type CardTitleProps = {
 };
 
 type CardProps = {
-  children: React.ReactNode | React.ReactNode[];
+  children: React.ReactNode;
 };
 
 export const CardImage = ({ source }: CardImageProps) => {

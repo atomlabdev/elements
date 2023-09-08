@@ -1,41 +1,41 @@
 import React from "react";
-import { View } from "react-native";
+import { View, Text } from "react-native";
 import tailwind from "twrnc";
 import { Alert } from "../../src/components/Alert";
 
 const AlertMeta = {
   title: "Components/Alert",
   component: Alert,
+  args: {
+    title: "Alert Title",
+    description: "This is the alert description",
+  },
   argTypes: {
-    color: {
+    variant: {
       control: "radio",
       options: ["default", "success", "error", "warning"],
     },
-    type: { control: "radio", options: ["default", "bordered"] },
   },
 };
 
 export default AlertMeta;
 
-export const Default = {
-  render: (args) => {
-    return (
-      <View style={tailwind`flex-1 items-center justify-center p-8`}>
-        <Alert {...args} />
-      </View>
-    );
+export const Default = {};
+
+export const Success = {
+  args: {
+    variant: "success",
   },
 };
 
-export const Bordered = {
+export const Warning = {
   args: {
-    type: "bordered",
+    variant: "warning",
   },
-  render: (args) => {
-    return (
-      <View style={tailwind`flex-1 items-center justify-center p-8`}>
-        <Alert {...args} />
-      </View>
-    );
+};
+
+export const Error = {
+  args: {
+    variant: "error",
   },
 };

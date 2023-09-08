@@ -1,64 +1,70 @@
-import { View, Text } from "react-native";
+import { View, Text, ViewProps, ViewStyle, TextStyle } from "react-native";
 import tailwind from "twrnc";
 
-type AlertProps = {
-  type?: "solid" | "bordered";
-  color?: "default" | "success" | "warning" | "error";
-};
+interface AlertProps extends ViewProps {
+  variant?: "default" | "success" | "warning" | "error";
+  containerStyle?: ViewStyle;
+  titleStyle?: TextStyle;
+  descriptionStyle?: TextStyle;
+  title?: string;
+  description?: string;
+}
 
-export const Alert = ({ type, color }: AlertProps) => {
-  const getType = () => {
-    if (type === "bordered") return "border";
-    return "";
-  };
-
-  const getColor = () => {
-    if (type === "bordered") {
-      if (color === "error") {
-        return "bg-slate-100 border-red-200";
-      }
-
-      if (color === "success") {
-        return "bg-slate-100 border-emerald-200";
-      }
-
-      if (color === "warning") {
-        return "bg-slate-100 border-orange-200";
-      }
-
-      return "bg-slate-100 border-slate-200";
-    }
-
-    if (color === "error") {
-      return "bg-red-500";
-    }
-
-    if (color === "success") {
-      return "bg-emerald-500";
-    }
-
-    if (color === "warning") {
-      return "bg-orange-500";
-    }
-
-    return "bg-slate-200";
-  };
-
-  const getTextColor = () => {
-    if (type === "bordered") {
-      if (color === "error") return "text-red-600";
-      if (color === "success") return "text-emerald-600";
-      if (color === "warning") return "text-orange-600";
-    }
-    if (color && color !== "default") return "text-white";
-    return "text-slate-900";
+export const Alert = ({
+  variant = "default",
+  title,
+  description,
+  containerStyle,
+  titleStyle,
+  descriptionStyle,
+  ...props
+}: AlertProps) => {
+  const variants = {
+    default: {
+      bg: tailwind`bg-slate-100`,
+      text: tailwind`text-slate-900`,
+    },
+    success: {
+      bg: tailwind`bg-emerald-100`,
+      text: tailwind`text-emerald-900`,
+    },
+    warning: {
+      bg: tailwind`bg-amber-100`,
+      text: tailwind`text-amber-900`,
+    },
+    error: {
+      bg: tailwind`bg-red-100`,
+      text: tailwind`text-red-900`,
+    },
   };
 
   return (
-    <View style={tailwind`w-full p-4 rounded-md ${getType()} ${getColor()}`}>
-      <Text style={tailwind`${getTextColor()} font-bold`}>
-        Your order is currently being processed
-      </Text>
+    <View
+      style={[
+        tailwind`w-full p-4 rounded-md`,
+        variants[variant].bg,
+        containerStyle,
+      ]}
+      {...props}
+    >
+      <View style={tailwind`flex-col gap-1`}>
+        {title ? (
+          <Text
+            style={[
+              tailwind`text-lg font-bold`,
+              variants[variant].text,
+              titleStyle,
+            ]}
+          >
+            {title}
+          </Text>
+        ) : null}
+        {description ? (
+          <Text style={[variants[variant].text, descriptionStyle]}>
+            {description}
+          </Text>
+        ) : null}
+      </View>
     </View>
   );
 };

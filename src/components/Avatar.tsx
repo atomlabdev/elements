@@ -1,28 +1,41 @@
-import { Image, ImageSourcePropType } from "react-native";
+import {
+  Image,
+  ImageProps,
+  ImageSourcePropType,
+  ImageStyle,
+} from "react-native";
 import tailwind from "twrnc";
 
-type AvatarSize = "sm" | "md" | "lg";
-type AvatarType = "circle" | "rounded";
-
-type AvatarProps = {
+interface AvatarProps extends ImageProps {
   source: ImageSourcePropType;
-  size?: AvatarSize;
-  type?: AvatarType;
-};
+  size?: "xs" | "sm" | "md" | "lg" | "xl";
+  variant?: "default" | "rounded";
+  imageStyle?: ImageStyle;
+}
 
-export const Avatar = ({ source, size, type }: AvatarProps) => {
-  const getSize = () => {
-    if (size === "lg") return `w-96 h-96`;
-    if (size === "md") return "w-64 h-64";
-
-    return "w-32 h-32";
+export const Avatar = ({
+  source,
+  size = "sm",
+  variant = "default",
+  imageStyle,
+}: AvatarProps) => {
+  const variants = {
+    default: tailwind`rounded-full`,
+    rounded: tailwind`rounded-lg`,
   };
 
-  const getType = () => {
-    if (type === "rounded") return "rounded-lg";
-
-    return "rounded-full";
+  const sizes = {
+    xs: tailwind`w-12 h-12`,
+    sm: tailwind`w-16 h-16`,
+    md: tailwind`w-24 h-24`,
+    lg: tailwind`w-36 h-36`,
+    xl: tailwind`w-48 h-48`,
   };
 
-  return <Image style={tailwind`${getSize()} ${getType()}`} source={source} />;
+  return (
+    <Image
+      style={[variants[variant], sizes[size], imageStyle]}
+      source={source}
+    />
+  );
 };
