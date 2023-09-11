@@ -1,29 +1,24 @@
-import { View, Text, ViewStyle } from "react-native";
+import { View, ViewProps } from "react-native";
 import tailwind from "twrnc";
 
-type BoxColor = "default" | "success" | "destructive";
+interface BoxProps extends ViewProps {
+  variant?: "default" | "success" | "destructive";
+}
 
-type BoxProps = {
-  color?: BoxColor;
-  styles?: ViewStyle;
-  children?: React.ReactNode;
-};
-
-export const Box = ({ color, styles, children }: BoxProps) => {
-  const getBgColor = (color?: BoxColor) => {
-    if (color === "success") {
-      return "bg-green-200";
-    }
-
-    if (color === "destructive") {
-      return "bg-red-200";
-    }
-
-    return "bg-slate-100";
+export const Box = ({
+  variant = "default",
+  style,
+  children,
+  ...props
+}: BoxProps) => {
+  const variants = {
+    default: tailwind`bg-slate-100`,
+    success: tailwind`bg-green-200`,
+    destructive: tailwind`bg-red-200`,
   };
 
   return (
-    <View style={[tailwind`${getBgColor(color)} px-4 py-2`, styles]}>
+    <View style={[tailwind`px-4 py-2`, variants[variant], style]} {...props}>
       {children}
     </View>
   );

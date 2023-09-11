@@ -10,34 +10,27 @@ const BoxMeta = {
     text: "Badge",
   },
   argTypes: {
-    size: {
+    variant: {
       control: "radio",
-      options: ["sm", "md", "lg"],
-    },
-    color: {
-      control: "radio",
-      options: [
-        "red",
-        "green",
-        "blue",
-        "orange",
-        "teal",
-        "indigo",
-        "fuchsia",
-        "pink",
-      ],
+      options: ["default", "success", "destructive"],
     },
   },
 };
 
 export default BoxMeta;
 
-export const Basic = {
-  render: (args) => {
-    return (
-      <View style={tailwind`flex-1 items-center justify-center`}>
-        <Badge {...args} />
-      </View>
-    );
+export const Default = {};
+
+export const Success = {
+  args: {
+    variant: "success",
+    text: "Success",
+  },
+};
+
+export const Destructive = {
+  args: {
+    variant: "destructive",
+    text: "Destructive",
   },
 };

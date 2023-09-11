@@ -19,10 +19,10 @@ export const WithImage = {
   render: (args) => {
     return (
       <View style={tailwind`flex-1 items-center justify-center`}>
-        <Card>
+        <Card style={tailwind`w-72`}>
           <CardImage source={{ uri: "https://source.unsplash.com/random" }} />
           <CardContent>
-            <CardTitle title="Title here" />
+            <CardTitle>Title here</CardTitle>
           </CardContent>
         </Card>
       </View>

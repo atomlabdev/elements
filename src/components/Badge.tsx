@@ -1,60 +1,37 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, ViewProps } from "react-native";
 import tailwind from "twrnc";
 
-type BadgeColor =
-  | "red"
-  | "green"
-  | "blue"
-  | "orange"
-  | "teal"
-  | "indigo"
-  | "fuchsia"
-  | "pink";
-type BadgeSize = "sm" | "md" | "lg";
-
-type BadgeProps = {
+interface BadgeProps extends ViewProps {
+  variant?: "default" | "success" | "destructive";
   text: string;
-  size?: BadgeSize;
-  color?: BadgeColor;
-};
+}
 
-export const Badge = ({ text, size, color }: BadgeProps) => {
-  const getBgColor = () => {
-    if (color) {
-      return `bg-${color}-700`;
-    }
-
-    return "bg-slate-700";
-  };
-
-  const getTextColor = () => {
-    if (color) {
-      return `text-${color}-50`;
-    }
-
-    return "text-slate-50";
-  };
-
-  const getSize = () => {
-    if (size === "lg") return "h-10 px-4";
-    if (size === "md") return "h-8 px-3";
-
-    return "h-6 px-2";
-  };
-
-  const getTextSize = () => {
-    if (size === "lg") return "text-lg";
-    if (size === "md") return "text-base";
-
-    return "text-xs";
+export const Badge = ({ variant = "default", text, style }: BadgeProps) => {
+  const variants = {
+    default: {
+      container: tailwind`bg-slate-100`,
+      text: tailwind`text-slate-900`,
+    },
+    success: {
+      container: tailwind`bg-green-700`,
+      text: tailwind`text-green-50`,
+    },
+    destructive: {
+      container: tailwind`bg-red-700`,
+      text: tailwind`text-red-50`,
+    },
   };
 
   return (
     <View
-      style={tailwind`justify-center ${getBgColor()} ${getSize()} rounded-md`}
+      style={[
+        tailwind`h-6 px-3 justify-center rounded-full`,
+        variants[variant].container,
+        style,
+      ]}
     >
-      <Text style={tailwind`${getTextColor()} ${getTextSize()} font-bold`}>
+      <Text style={[tailwind`text-xs font-bold`, variants[variant].text]}>
         {text}
       </Text>
     </View>

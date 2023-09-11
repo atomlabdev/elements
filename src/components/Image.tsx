@@ -1,23 +1,28 @@
-import { Image, ImageSourcePropType, ImageStyle } from "react-native";
+import { Image, ImageProps } from "react-native";
 import tailwind from "twrnc";
 
-type ImageProps = {
-  source: ImageSourcePropType;
-  style?: ImageStyle;
-};
-
-export const SquareImage = ({ source, style }: ImageProps) => {
-  return <Image source={source} style={[tailwind`w-64 h-64`, style]} />;
-};
-
-export const RoundedImage = ({ source, style }: ImageProps) => {
+export const SquareImage = ({ source, style, ...props }: ImageProps) => {
   return (
-    <Image source={source} style={[tailwind`w-64 h-64 rounded-lg`, style]} />
+    <Image source={source} style={[tailwind`w-64 h-64`, style]} {...props} />
   );
 };
 
-export const CircleImage = ({ source, style }: ImageProps) => {
+export const RoundedImage = ({ source, style, ...props }: ImageProps) => {
   return (
-    <Image source={source} style={[tailwind`w-64 h-64 rounded-full`, style]} />
+    <Image
+      source={source}
+      style={[tailwind`w-64 h-64 rounded-lg`, style]}
+      {...props}
+    />
+  );
+};
+
+export const CircleImage = ({ source, style, ...props }: ImageProps) => {
+  return (
+    <Image
+      source={source}
+      style={[tailwind`w-64 h-64 rounded-full`, style]}
+      {...props}
+    />
   );
 };

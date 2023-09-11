@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, PressableProps, Text } from "react-native";
+import { Pressable, PressableProps, Text, ViewStyle } from "react-native";
 import tailwind from "twrnc";
 
 type ButtonVariant = "default" | "success" | "destructive";
@@ -7,12 +7,12 @@ type ButtonVariant = "default" | "success" | "destructive";
 interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
   text: string;
-  onPress?: () => void;
 }
 
 export const Button = ({
   text,
   variant = "default",
+  style,
   ...props
 }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
@@ -46,6 +46,8 @@ export const Button = ({
         tailwind`h-10 px-4 items-center justify-center rounded-md`,
         styles[variant].bg,
         hovered || pressed ? styles[variant].hover : null,
+        // todo: fix ts error
+        style as ViewStyle,
       ]}
       {...props}
     >
