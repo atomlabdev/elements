@@ -3,12 +3,13 @@
   "version": "1.0.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
-    "start": "expo start",
+    "start": "sb-rn-get-stories && expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
-    "storybook-watch": "sb-rn-watcher"
+    "storybook-watch": "sb-rn-watcher",
+    "build": "sb-rn-get-stories && npx expo export -p web"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
