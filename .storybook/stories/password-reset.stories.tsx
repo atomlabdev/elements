@@ -1,4 +1,4 @@
-import { PasswordReset } from "../../src/templates/authentication/password-reset";
+import { PasswordReset } from "@/templates/authentication/password-reset";
 
 const PasswordResetMeta = {
   title: "Templates/Authentication/PasswordReset",
