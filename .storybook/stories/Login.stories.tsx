@@ -1,4 +1,4 @@
-import { Login } from "../../src/templates/authentication/Login";
+import { Login } from "../../src/templates/authentication/login";
 
 const LoginMeta = {
   title: "Templates/Authentication/Login",

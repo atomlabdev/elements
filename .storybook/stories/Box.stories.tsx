@@ -1,37 +1,27 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { Box } from "../../src/components/Box";
+import { DefaultBox } from "@/examples/components/box/default-box";
+import { DestructiveBox } from "@/examples/components/box/destructive-box";
+import { SuccessBox } from "@/examples/components/box/success-box";
 
 const BoxMeta = {
   title: "Components/Box",
-  component: Box,
-  argTypes: {
-    variant: {
-      control: "radio",
-      options: ["default", "success", "destructive"],
-    },
-  },
-  render: (args) => {
-    return (
-      <Box {...args}>
-        <Text>This is a box</Text>
-      </Box>
-    );
-  },
 };
 
 export default BoxMeta;
 
-export const Default = {};
+export const Default = {
+  render: () => {
+    return <DefaultBox />;
+  },
+};
 
 export const Success = {
-  args: {
-    variant: "success",
+  render: () => {
+    return <SuccessBox />;
   },
 };
 
 export const Destructive = {
-  args: {
-    variant: "destructive",
+  render: () => {
+    return <DestructiveBox />;
   },
 };

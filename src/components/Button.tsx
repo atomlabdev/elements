@@ -6,7 +6,7 @@ type ButtonVariant = "default" | "success" | "destructive";
 interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
   text: string;
-  textStyle: TextStyle;
+  textStyle?: TextStyle;
 }
 
 export const Button = ({

@@ -1,36 +1,27 @@
-import React from "react";
-import { View } from "react-native";
-import { Badge } from "../../src/components/Badge";
-import tailwind from "twrnc";
+import { DefaultBadge } from "@/examples/components/badge/default-badge";
+import { DestructiveBadge } from "@/examples/components/badge/destructive-badge";
+import { SuccessBadge } from "@/examples/components/badge/success-badge";
 
 const BoxMeta = {
   title: "Components/Badge",
-  component: Badge,
-  args: {
-    text: "Badge",
-  },
-  argTypes: {
-    variant: {
-      control: "radio",
-      options: ["default", "success", "destructive"],
-    },
-  },
 };
 
 export default BoxMeta;
 
-export const Default = {};
+export const Default = {
+  render: () => {
+    return <DefaultBadge />;
+  },
+};
 
 export const Success = {
-  args: {
-    variant: "success",
-    text: "Success",
+  render: () => {
+    return <SuccessBadge />;
   },
 };
 
 export const Destructive = {
-  args: {
-    variant: "destructive",
-    text: "Destructive",
+  render: () => {
+    return <DestructiveBadge />;
   },
 };

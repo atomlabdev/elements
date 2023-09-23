@@ -1,33 +1,28 @@
-import { Button } from "../../src/components/Button";
+import { DefaultButton } from "@/examples/components/button/default-button";
+import { DestructiveButton } from "@/examples/components/button/destructive-button";
+import { SuccessButton } from "@/examples/components/button/success-button";
 
 const ButtonMeta = {
   title: "Components/Button",
-  component: Button,
-  args: {
-    text: "Button",
-  },
-  argTypes: {
-    variant: {
-      control: "radio",
-      options: ["default", "success", "destructive"],
-    },
-  },
+  component: DefaultButton,
 };
 
 export default ButtonMeta;
 
-export const Default = {};
+export const Default = {
+  render: () => {
+    return <DefaultButton />;
+  },
+};
 
 export const Success = {
-  args: {
-    text: "Success",
-    variant: "success",
+  render: () => {
+    return <SuccessButton />;
   },
 };
 
 export const Destructive = {
-  args: {
-    text: "Destructive",
-    variant: "destructive",
+  render: () => {
+    return <DestructiveButton />;
   },
 };

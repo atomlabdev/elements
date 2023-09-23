@@ -21,6 +21,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.4",
     "react-native-web": "~0.19.6",
+    "tsconfig-paths-webpack-plugin": "^4.1.0",
     "twrnc": "^3.6.4"
   },
   "devDependencies": {
