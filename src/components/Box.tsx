@@ -1,5 +1,4 @@
 import { View, ViewProps } from "react-native";
-import tailwind from "twrnc";
 
 interface BoxProps extends ViewProps {
   variant?: "default" | "success" | "destructive";
@@ -12,13 +11,13 @@ export const Box = ({
   ...props
 }: BoxProps) => {
   const variants = {
-    default: tailwind`bg-slate-100`,
-    success: tailwind`bg-green-200`,
-    destructive: tailwind`bg-red-200`,
+    default: "bg-slate-100",
+    success: "bg-green-200",
+    destructive: "bg-red-200",
   };
 
   return (
-    <View style={[tailwind`px-4 py-2`, variants[variant], style]} {...props}>
+    <View className={`px-4 py-2 ${variants[variant]}`} {...props}>
       {children}
     </View>
   );

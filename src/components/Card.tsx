@@ -6,13 +6,12 @@ import {
   ViewProps,
   TextProps,
 } from "react-native";
-import tailwind from "twrnc";
 
 export const CardImage = ({ source, style, ...props }: ImageProps) => {
   return (
     <Image
       source={source}
-      style={[tailwind`w-full h-64 rounded-t-xl`, style]}
+      className={`w-full h-64 rounded-t-xl ${style}`}
       resizeMode="cover"
       {...props}
     />
@@ -21,7 +20,7 @@ export const CardImage = ({ source, style, ...props }: ImageProps) => {
 
 export const CardContent = ({ children, style, ...props }: ViewProps) => {
   return (
-    <View style={[tailwind`p-6`, style]} {...props}>
+    <View className={`p-6 ${style}`} {...props}>
       {children}
     </View>
   );
@@ -29,10 +28,7 @@ export const CardContent = ({ children, style, ...props }: ViewProps) => {
 
 export const CardTitle = ({ children, style, ...props }: TextProps) => {
   return (
-    <Text
-      style={[tailwind`text-slate-900 text-lg font-bold`, style]}
-      {...props}
-    >
+    <Text className={`text-slate-900 text-lg font-bold ${style}`} {...props}>
       {children}
     </Text>
   );
@@ -40,10 +36,7 @@ export const CardTitle = ({ children, style, ...props }: TextProps) => {
 
 export const Card = ({ children, style, ...props }: ViewProps) => {
   return (
-    <View
-      style={[tailwind`bg-white rounded-xl w-full max-w-xs`, style]}
-      {...props}
-    >
+    <View className={`bg-white rounded-xl w-full max-w-xs ${style}`} {...props}>
       {children}
     </View>
   );

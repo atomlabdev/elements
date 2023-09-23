@@ -1,10 +1,9 @@
-import { View, ViewStyle } from "react-native";
-import tailwind from "twrnc";
+import { DimensionValue, View } from "react-native";
 
 type ProgressBarProps = {
   complete: number;
-  containerStyle?: ViewStyle;
-  barStyle?: ViewStyle;
+  containerStyle?: string;
+  barStyle?: string;
 };
 
 export const ProgressBar = ({
@@ -25,15 +24,10 @@ export const ProgressBar = ({
   };
 
   return (
-    <View
-      style={[tailwind`h-4 bg-slate-100 rounded-full w-full`, containerStyle]}
-    >
+    <View className={`h-4 bg-slate-100 rounded-full w-full ${containerStyle}`}>
       <View
-        style={[
-          tailwind`h-4 bg-blue-400 rounded-full`,
-          barStyle,
-          { width: getWidth() },
-        ]}
+        className={`h-4 bg-blue-400 rounded-full ${barStyle}`}
+        style={{ width: getWidth() as DimensionValue }}
       />
     </View>
   );

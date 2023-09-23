@@ -1,5 +1,4 @@
 import { Image, ImageProps } from "react-native";
-import tailwind from "twrnc";
 
 interface AvatarProps extends ImageProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
@@ -14,21 +13,21 @@ export const Avatar = ({
   ...props
 }: AvatarProps) => {
   const variants = {
-    default: tailwind`rounded-full`,
-    rounded: tailwind`rounded-lg`,
+    default: "rounded-full",
+    rounded: "rounded-lg",
   };
 
   const sizes = {
-    xs: tailwind`w-12 h-12`,
-    sm: tailwind`w-16 h-16`,
-    md: tailwind`w-24 h-24`,
-    lg: tailwind`w-36 h-36`,
-    xl: tailwind`w-48 h-48`,
+    xs: "w-12 h-12",
+    sm: "w-16 h-16",
+    md: "w-24 h-24",
+    lg: "w-36 h-36",
+    xl: "w-48 h-48",
   };
 
   return (
     <Image
-      style={[variants[variant], sizes[size], style]}
+      className={`${variants[variant]} ${sizes[size]} ${style}`}
       source={source}
       {...props}
     />

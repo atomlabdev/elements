@@ -1,6 +1,5 @@
 import React from "react";
 import { View, Text, ViewProps } from "react-native";
-import tailwind from "twrnc";
 
 interface BadgeProps extends ViewProps {
   variant?: "default" | "success" | "destructive";
@@ -10,28 +9,24 @@ interface BadgeProps extends ViewProps {
 export const Badge = ({ variant = "default", text, style }: BadgeProps) => {
   const variants = {
     default: {
-      container: tailwind`bg-slate-100`,
-      text: tailwind`text-slate-900`,
+      container: "bg-slate-100",
+      text: "text-slate-900",
     },
     success: {
-      container: tailwind`bg-green-700`,
-      text: tailwind`text-green-50`,
+      container: "bg-green-700",
+      text: "text-green-50",
     },
     destructive: {
-      container: tailwind`bg-red-700`,
-      text: tailwind`text-red-50`,
+      container: "bg-red-700",
+      text: "text-red-50",
     },
   };
 
   return (
     <View
-      style={[
-        tailwind`h-6 px-3 justify-center rounded-full`,
-        variants[variant].container,
-        style,
-      ]}
+      className={`h-6 px-3 justify-center rounded-full ${variants[variant].container} ${style}`}
     >
-      <Text style={[tailwind`text-xs font-bold`, variants[variant].text]}>
+      <Text className={`text-xs font-bold ${variants[variant].text}`}>
         {text}
       </Text>
     </View>

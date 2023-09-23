@@ -1,5 +1,4 @@
 import { View, Text, FlatList, ViewStyle, TextStyle } from "react-native";
-import tailwind from "twrnc";
 
 type BulletListItem = {
   key: string;
@@ -21,9 +20,9 @@ export const BulletList = ({
       data={items}
       renderItem={({ item }) => {
         return (
-          <View style={[tailwind`mb-2`, containerStyle]}>
+          <View className={`mb-2 ${containerStyle}`}>
             <Text
-              style={[tailwind`text-lg`, textStyle]}
+              className={`text-lg ${textStyle}`}
             >{`\u2022 ${item.key}`}</Text>
           </View>
         );

@@ -1,8 +1,8 @@
 import React from "react";
-import { DefaultAlert } from "@/examples/components/alert/DefaultAlert";
-import { SuccessAlert } from "@/examples/components/alert/SuccessAlert";
-import { WarningAlert } from "@/examples/components/alert/WarningAlert";
-import { ErrorAlert } from "@/examples/components/alert/ErrorAlert";
+import { DefaultAlert } from "../../src/examples/components/alert/DefaultAlert";
+// import { SuccessAlert } from "@/examples/components/alert/SuccessAlert";
+// import { WarningAlert } from "@/examples/components/alert/WarningAlert";
+// import { ErrorAlert } from "@/examples/components/alert/ErrorAlert";
 
 const AlertMeta = {
   title: "Components/Alert",
@@ -16,20 +16,20 @@ export const Default = {
   },
 };
 
-export const Success = {
-  render: (args) => {
-    return <SuccessAlert />;
-  },
-};
+// export const Success = {
+//   render: (args) => {
+//     return <SuccessAlert />;
+//   },
+// };
 
-export const Warning = {
-  render: (args) => {
-    return <WarningAlert />;
-  },
-};
+// export const Warning = {
+//   render: (args) => {
+//     return <WarningAlert />;
+//   },
+// };
 
-export const Error = {
-  render: (args) => {
-    return <ErrorAlert />;
-  },
-};
+// export const Error = {
+//   render: (args) => {
+//     return <ErrorAlert />;
+//   },
+// };

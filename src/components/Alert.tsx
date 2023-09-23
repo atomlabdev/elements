@@ -1,5 +1,4 @@
 import { View, Text, ViewProps, ViewStyle, TextStyle } from "react-native";
-import tailwind from "twrnc";
 
 interface AlertProps extends ViewProps {
   variant?: "default" | "success" | "warning" | "error";
@@ -21,46 +20,38 @@ export const Alert = ({
 }: AlertProps) => {
   const variants = {
     default: {
-      bg: tailwind`bg-slate-100`,
-      text: tailwind`text-slate-900`,
+      bg: "bg-slate-100",
+      text: "text-slate-900",
     },
     success: {
-      bg: tailwind`bg-emerald-100`,
-      text: tailwind`text-emerald-900`,
+      bg: "bg-emerald-100",
+      text: "text-emerald-900",
     },
     warning: {
-      bg: tailwind`bg-amber-100`,
-      text: tailwind`text-amber-900`,
+      bg: "bg-amber-100",
+      text: "text-amber-900",
     },
     error: {
-      bg: tailwind`bg-red-100`,
-      text: tailwind`text-red-900`,
+      bg: "bg-red-100",
+      text: "text-red-900",
     },
   };
 
   return (
     <View
-      style={[
-        tailwind`w-full p-4 rounded-md`,
-        variants[variant].bg,
-        containerStyle,
-      ]}
+      className={`w-full p-4 rounded-md ${variants[variant].bg} ${containerStyle}`}
       {...props}
     >
-      <View style={tailwind`flex-col gap-1`}>
+      <View className="flex-col gap-1">
         {title ? (
           <Text
-            style={[
-              tailwind`text-lg font-bold`,
-              variants[variant].text,
-              titleStyle,
-            ]}
+            className={`text-lg font-bold ${variants[variant].text} ${titleStyle}`}
           >
             {title}
           </Text>
         ) : null}
         {description ? (
-          <Text style={[variants[variant].text, descriptionStyle]}>
+          <Text className={`${variants[variant].text} ${descriptionStyle}`}>
             {description}
           </Text>
         ) : null}
