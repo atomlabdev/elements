@@ -9,7 +9,7 @@
     "web": "expo start --web",
     "storybook-generate": "sb-rn-get-stories",
     "storybook-watch": "sb-rn-watcher",
-    "build": "sb-rn-get-stories && npx expo export -p web"
+    "build": "sb-rn-get-stories && npx expo export:web"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",
