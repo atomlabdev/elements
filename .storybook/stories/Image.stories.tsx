@@ -4,7 +4,7 @@ import {
   CircleImage,
   RoundedImage,
   SquareImage,
-} from "../../src/components/Image";
+} from "../../src/components/image";
 import tailwind from "twrnc";
 
 const ImageMeta = {

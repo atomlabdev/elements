@@ -1,6 +1,6 @@
 import React from "react";
 import { View } from "react-native";
-import { Badge } from "../../src/components/Badge";
+import { Badge } from "../../src/components/badge";
 import tailwind from "twrnc";
 
 const BoxMeta = {

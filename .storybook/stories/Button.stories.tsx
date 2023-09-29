@@ -1,4 +1,4 @@
-import { Button } from "../../src/components/Button";
+import { Button } from "../../src/components/button";
 
 const ButtonMeta = {
   title: "Components/Button",

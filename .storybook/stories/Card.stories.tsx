@@ -5,7 +5,7 @@ import {
   CardContent,
   CardImage,
   CardTitle,
-} from "../../src/components/Card";
+} from "../../src/components/card";
 import tailwind from "twrnc";
 
 const CardMeta = {

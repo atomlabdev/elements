@@ -1,4 +1,4 @@
-import { UserProfile } from "../../src/templates/authentication/UserProfile";
+import { UserProfile } from "../../src/templates/authentication/user-profile";
 
 const UserProfileMeta = {
   title: "Templates/Authentication/UserProfile",

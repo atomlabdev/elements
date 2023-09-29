@@ -1,8 +1,8 @@
 import React from "react";
-import { DefaultAlert } from "@/examples/components/alert/DefaultAlert";
-import { SuccessAlert } from "@/examples/components/alert/SuccessAlert";
-import { WarningAlert } from "@/examples/components/alert/WarningAlert";
-import { ErrorAlert } from "@/examples/components/alert/ErrorAlert";
+import { DefaultAlert } from "@/examples/components/alert/default";
+import { SuccessAlert } from "@/examples/components/alert/success";
+import { WarningAlert } from "@/examples/components/alert/warning";
+import { ErrorAlert } from "@/examples/components/alert/error";
 
 const AlertMeta = {
   title: "Components/Alert",

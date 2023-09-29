@@ -1,8 +1,8 @@
 import React from "react";
 import { View } from "react-native";
-import { BulletList } from "../../src/components/List";
+import { BulletList } from "../../src/components/list";
 import tailwind from "twrnc";
-import { ProgressBar } from "../../src/components/ProgressBar";
+import { ProgressBar } from "../../src/components/progress-bar";
 
 const ProgressBarMeta = {
   title: "Components/Progress Bar",

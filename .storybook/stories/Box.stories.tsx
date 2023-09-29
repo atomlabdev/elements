@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Text } from "react-native";
-import { Box } from "../../src/components/Box";
+import { Box } from "../../src/components/box";
 
 const BoxMeta = {
   title: "Components/Box",

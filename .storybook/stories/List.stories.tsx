@@ -13,7 +13,7 @@ const items = [
 
 import React from "react";
 import { View } from "react-native";
-import { BulletList } from "../../src/components/List";
+import { BulletList } from "../../src/components/list";
 import tailwind from "twrnc";
 
 const ListMeta = {

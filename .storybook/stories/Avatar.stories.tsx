@@ -1,4 +1,4 @@
-import { Avatar } from "../../src/components/Avatar";
+import { Avatar } from "../../src/components/avatar";
 
 const AvatarMeta = {
   title: "Components/Avatar",
