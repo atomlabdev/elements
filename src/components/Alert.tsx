@@ -21,8 +21,8 @@ export const Alert = ({
 }: AlertProps) => {
   const variants = {
     default: {
-      bg: tailwind`bg-slate-100`,
-      text: tailwind`text-slate-900`,
+      bg: tailwind`bg-gray-100`,
+      text: tailwind`text-gray-900`,
     },
     success: {
       bg: tailwind`bg-emerald-100`,

@@ -25,7 +25,7 @@ export default ListMeta;
 export const BulletListExample = {
   render: (args) => {
     return (
-      <View style={tailwind`bg-white flex-1 items-center justify-center`}>
+      <View style={tailwind`bg-gray-50 flex-1 items-center justify-center`}>
         <BulletList items={items} />
       </View>
     );

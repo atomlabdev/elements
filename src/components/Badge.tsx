@@ -10,8 +10,8 @@ interface BadgeProps extends ViewProps {
 export const Badge = ({ variant = "default", text, style }: BadgeProps) => {
   const variants = {
     default: {
-      container: tailwind`bg-slate-100`,
-      text: tailwind`text-slate-900`,
+      container: tailwind`bg-gray-100`,
+      text: tailwind`text-gray-900`,
     },
     success: {
       container: tailwind`bg-green-700`,

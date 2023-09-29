@@ -28,9 +28,9 @@ export const Button = ({
 
   const styles = {
     default: {
-      bg: tailwind`bg-slate-900 dark:bg-slate-100`,
-      hover: tailwind`bg-slate-900 dark:bg-slate-200`,
-      text: tailwind`text-white dark:text-slate-900`,
+      bg: tailwind`bg-gray-900 dark:bg-gray-100`,
+      hover: tailwind`bg-gray-900 dark:bg-gray-200`,
+      text: tailwind`text-gray-50 dark:text-gray-900`,
     },
     success: {
       bg: tailwind`bg-green-700`,

@@ -12,7 +12,7 @@ export const Box = ({
   ...props
 }: BoxProps) => {
   const variants = {
-    default: tailwind`bg-slate-100`,
+    default: tailwind`bg-gray-100`,
     success: tailwind`bg-green-200`,
     destructive: tailwind`bg-red-200`,
   };

@@ -29,10 +29,7 @@ export const CardContent = ({ children, style, ...props }: ViewProps) => {
 
 export const CardTitle = ({ children, style, ...props }: TextProps) => {
   return (
-    <Text
-      style={[tailwind`text-slate-900 text-lg font-bold`, style]}
-      {...props}
-    >
+    <Text style={[tailwind`text-gray-900 text-lg font-bold`, style]} {...props}>
       {children}
     </Text>
   );
@@ -41,7 +38,7 @@ export const CardTitle = ({ children, style, ...props }: TextProps) => {
 export const Card = ({ children, style, ...props }: ViewProps) => {
   return (
     <View
-      style={[tailwind`bg-white rounded-xl w-full max-w-xs`, style]}
+      style={[tailwind`bg-gray-50 rounded-xl w-full max-w-xs`, style]}
       {...props}
     >
       {children}

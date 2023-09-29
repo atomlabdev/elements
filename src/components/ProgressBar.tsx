@@ -26,7 +26,7 @@ export const ProgressBar = ({
 
   return (
     <View
-      style={[tailwind`h-4 bg-slate-100 rounded-full w-full`, containerStyle]}
+      style={[tailwind`h-4 bg-gray-100 rounded-full w-full`, containerStyle]}
     >
       <View
         style={[
