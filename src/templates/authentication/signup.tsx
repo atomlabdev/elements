@@ -1,13 +1,17 @@
 import { useState } from "react";
-import { View, Text, TextInput, Pressable } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import tailwind from "twrnc";
+import { TextInput } from "@/components/text-input";
+import { Button } from "@/components/button";
 
 export const Signup = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState(null);
 
   return (
-    <View style={tailwind`flex-1 items-center justify-center bg-gray-950`}>
+    <View
+      style={tailwind`w-full flex-1 items-center justify-center bg-gray-950`}
+    >
       {error ? (
         <View
           style={tailwind`absolute top-8 w-full bg-red-400 mx-8 max-w-sm p-4 rounded-md`}
@@ -17,40 +21,34 @@ export const Signup = () => {
           </Text>
         </View>
       ) : null}
-      <View style={tailwind`p-8 w-full max-w-sm`}>
+      <View style={tailwind`px-8 w-full max-w-sm`}>
         <Text style={tailwind`text-5xl font-bold mb-6 text-gray-50`}>
           Sign up
         </Text>
 
-        <TextInput
-          style={tailwind`w-full bg-gray-50 rounded-md h-12 px-4 mb-4`}
-          placeholderTextColor="#000"
-          placeholder="Enter email address"
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
+        <View style={tailwind`flex flex-col gap-4`}>
+          <TextInput
+            placeholder="Enter email address"
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
 
-        <TextInput
-          style={tailwind`w-full bg-gray-50 rounded-md h-12 px-4 mb-4`}
-          placeholderTextColor="#000"
-          placeholder="Confirm email address"
-          autoCapitalize="none"
-          keyboardType="email-address"
-        />
+          <TextInput
+            placeholder="Confirm email address"
+            autoCapitalize="none"
+            keyboardType="email-address"
+          />
 
-        <TextInput
-          style={tailwind`w-full bg-gray-50 rounded-md h-12 px-4 mb-4`}
-          placeholderTextColor="#000"
-          placeholder="Enter password"
-          secureTextEntry={!showPassword}
-        />
+          <TextInput
+            placeholder="Enter password"
+            secureTextEntry={!showPassword}
+          />
 
-        <TextInput
-          style={tailwind`w-full bg-gray-50 rounded-md h-12 px-4`}
-          placeholderTextColor="#000"
-          placeholder="Confirm password"
-          secureTextEntry={!showPassword}
-        />
+          <TextInput
+            placeholder="Confirm password"
+            secureTextEntry={!showPassword}
+          />
+        </View>
 
         <View style={tailwind`flex-row items-center my-8`}>
           <Pressable
@@ -64,15 +62,7 @@ export const Signup = () => {
           </Text>
         </View>
 
-        <Pressable
-          style={tailwind`h-12 border-2 border-gray-50 rounded-md flex flex-row justify-center items-center px-6`}
-        >
-          <View style={tailwind`flex-1 flex items-center`}>
-            <Text style={tailwind`text-gray-50 text-base font-medium`}>
-              Sign up
-            </Text>
-          </View>
-        </Pressable>
+        <Button text="Sign up" variant="success" />
       </View>
     </View>
   );

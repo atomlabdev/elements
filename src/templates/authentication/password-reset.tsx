@@ -1,10 +1,14 @@
-import { View, Text, TextInput, Pressable } from "react-native";
+import { View, Text } from "react-native";
 import tailwind from "twrnc";
+import { TextInput } from "@/components/text-input";
+import { Button } from "@/components/button";
 
 export const PasswordReset = () => {
   return (
-    <View style={tailwind`flex-1 items-center justify-center bg-gray-950`}>
-      <View style={tailwind`p-8 w-full max-w-sm`}>
+    <View
+      style={tailwind`flex-1 w-full items-center justify-center bg-gray-950`}
+    >
+      <View style={tailwind`px-4 w-full max-w-sm`}>
         <Text style={tailwind`text-5xl font-bold mb-6 text-gray-50`}>
           Reset Your Password
         </Text>
@@ -14,21 +18,9 @@ export const PasswordReset = () => {
           you'll recieve a link to create a new one.
         </Text>
 
-        <TextInput
-          style={tailwind`w-full bg-gray-50 rounded-md h-12 px-4 mb-4`}
-          placeholderTextColor="#000"
-          placeholder="Enter email address"
-        />
+        <TextInput style={tailwind`mb-4`} placeholder="Enter email address" />
 
-        <Pressable
-          style={tailwind`h-12 border-2 border-gray-50 rounded-md flex flex-row justify-center items-center px-6`}
-        >
-          <View style={tailwind`flex-1 flex items-center`}>
-            <Text style={tailwind`text-gray-50 text-base font-medium`}>
-              Reset Password
-            </Text>
-          </View>
-        </Pressable>
+        <Button text="Reset Password" variant="success" />
       </View>
     </View>
   );

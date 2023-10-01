@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import { View, Text, ViewProps, ViewStyle, TextStyle } from "react-native";
 import tailwind from "twrnc";
 
@@ -8,6 +9,7 @@ interface AlertProps extends ViewProps {
   descriptionStyle?: TextStyle;
   title?: string;
   description?: string;
+  icon?: (iconColor: string, defaultSize: number) => ReactNode;
 }
 
 export const Alert = ({
@@ -17,6 +19,7 @@ export const Alert = ({
   containerStyle,
   titleStyle,
   descriptionStyle,
+  icon,
   ...props
 }: AlertProps) => {
   const variants = {
@@ -38,15 +41,23 @@ export const Alert = ({
     },
   };
 
+  const iconColors = {
+    default: tailwind.color("text-gray-900"),
+    success: tailwind.color("text-emerald-900"),
+    warning: tailwind.color("text-amber-900"),
+    error: tailwind.color("text-red-900"),
+  };
+
   return (
     <View
       style={[
-        tailwind`w-full p-4 rounded-md`,
+        tailwind`w-full p-4 rounded-md flex-row items-center gap-4`,
         variants[variant].bg,
         containerStyle,
       ]}
       {...props}
     >
+      {icon ? icon(iconColors[variant], 32) : null}
       <View style={tailwind`flex-col gap-1`}>
         {title ? (
           <Text
@@ -60,7 +71,13 @@ export const Alert = ({
           </Text>
         ) : null}
         {description ? (
-          <Text style={[variants[variant].text, descriptionStyle]}>
+          <Text
+            style={[
+              tailwind`text-md`,
+              variants[variant].text,
+              descriptionStyle,
+            ]}
+          >
             {description}
           </Text>
         ) : null}

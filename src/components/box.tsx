@@ -18,7 +18,7 @@ export const Box = ({
   };
 
   return (
-    <View style={[tailwind`px-4 py-2`, variants[variant], style]} {...props}>
+    <View {...props} style={[tailwind`px-4 py-2`, variants[variant], style]}>
       {children}
     </View>
   );

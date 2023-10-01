@@ -1,30 +1,41 @@
 import { View, Text, FlatList, ViewStyle, TextStyle } from "react-native";
 import tailwind from "twrnc";
 
-type BulletListItem = {
+type ListItem = {
   key: string;
 };
 
-type BulletListProps = {
-  items: BulletListItem[];
-  containerStyle?: ViewStyle;
+type ListProps = {
+  variant?: "bullet" | "hyphenated" | "squared";
+  listItemStyle?: ViewStyle;
   textStyle?: TextStyle;
+  data: ListItem[];
 };
 
-export const BulletList = ({
-  items,
-  containerStyle,
+export const List = ({
+  variant = "bullet",
+  data,
+  listItemStyle,
   textStyle,
-}: BulletListProps) => {
+}: ListProps) => {
+  const variants = {
+    bullet: "\u2022",
+    hyphenated: "\u2043",
+    squared: "\u25A0",
+  };
+
   return (
     <FlatList
-      data={items}
+      data={data}
       renderItem={({ item }) => {
         return (
-          <View style={[tailwind`mb-2`, containerStyle]}>
+          <View style={[tailwind`mb-2`, listItemStyle]}>
             <Text
-              style={[tailwind`text-lg`, textStyle]}
-            >{`\u2022 ${item.key}`}</Text>
+              style={[
+                tailwind`text-lg text-gray-950 dark:text-gray-50`,
+                textStyle,
+              ]}
+            >{`${variants[variant]} ${item.key}`}</Text>
           </View>
         );
       }}

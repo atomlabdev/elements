@@ -2,26 +2,35 @@ import { View, ViewStyle } from "react-native";
 import tailwind from "twrnc";
 
 type ProgressBarProps = {
-  complete: number;
+  variant?: "default" | "success" | "destructive" | "warning";
+  progress: number;
   containerStyle?: ViewStyle;
   barStyle?: ViewStyle;
 };
 
 export const ProgressBar = ({
-  complete,
+  variant = "default",
+  progress,
   containerStyle,
   barStyle,
 }: ProgressBarProps) => {
+  const variants = {
+    default: tailwind`bg-blue-400`,
+    success: tailwind`bg-emerald-400`,
+    destructive: tailwind`bg-red-400`,
+    warning: tailwind`bg-amber-400`,
+  };
+
   const getWidth = () => {
-    if (complete > 100) {
+    if (progress > 100) {
       return "100%";
     }
 
-    if (complete < 0) {
+    if (progress < 0) {
       return "0%";
     }
 
-    return `${complete}%`;
+    return `${progress}%`;
   };
 
   return (
@@ -30,7 +39,8 @@ export const ProgressBar = ({
     >
       <View
         style={[
-          tailwind`h-4 bg-blue-400 rounded-full`,
+          tailwind`h-4 rounded-full`,
+          variants[variant],
           barStyle,
           { width: getWidth() },
         ]}

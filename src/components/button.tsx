@@ -12,21 +12,25 @@ type ButtonVariant = "default" | "success" | "destructive";
 
 interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
+  icon?: (style: TextStyle[]) => React.ReactNode;
   text: string;
-  textStyle: TextStyle;
+  textStyle?: TextStyle;
+  iconStyle?: TextStyle;
 }
 
 export const Button = ({
   text,
+  icon,
   variant = "default",
   style,
   textStyle,
+  iconStyle,
   ...props
 }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
   const [pressed, setPressed] = useState(false);
 
-  const styles = {
+  const variants = {
     default: {
       bg: tailwind`bg-gray-900 dark:bg-gray-100`,
       hover: tailwind`bg-gray-900 dark:bg-gray-200`,
@@ -46,21 +50,24 @@ export const Button = ({
 
   return (
     <Pressable
+      {...props}
       onHoverIn={() => setHovered(true)}
       onHoverOut={() => setHovered(false)}
       onPressIn={() => setPressed(true)}
       onPressOut={() => setPressed(false)}
       style={[
-        tailwind`h-10 px-4 items-center justify-center rounded-md`,
-        styles[variant].bg,
-        hovered || pressed ? styles[variant].hover : null,
+        tailwind`h-10 px-4 flex-row gap-2 items-center justify-center rounded-md`,
+        variants[variant].bg,
+        hovered || pressed ? variants[variant].hover : null,
         // todo: fix ts error
         style as ViewStyle,
       ]}
-      {...props}
     >
+      {icon
+        ? icon([tailwind`text-lg`, variants[variant].text, iconStyle])
+        : null}
       {text ? (
-        <Text style={[tailwind`font-bold`, styles[variant].text, textStyle]}>
+        <Text style={[tailwind`font-bold`, variants[variant].text, textStyle]}>
           {text}
         </Text>
       ) : null}

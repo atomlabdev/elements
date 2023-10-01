@@ -47,19 +47,22 @@ try {
 
 const getStories = () => {
   return {
-    "./.storybook/stories/Alert.stories.tsx": require("./stories/Alert.stories.tsx"),
-    "./.storybook/stories/Avatar.stories.tsx": require("./stories/Avatar.stories.tsx"),
-    "./.storybook/stories/Badge.stories.tsx": require("./stories/Badge.stories.tsx"),
-    "./.storybook/stories/Box.stories.tsx": require("./stories/Box.stories.tsx"),
-    "./.storybook/stories/Button.stories.tsx": require("./stories/Button.stories.tsx"),
-    "./.storybook/stories/Card.stories.tsx": require("./stories/Card.stories.tsx"),
-    "./.storybook/stories/Image.stories.tsx": require("./stories/Image.stories.tsx"),
-    "./.storybook/stories/List.stories.tsx": require("./stories/List.stories.tsx"),
-    "./.storybook/stories/Login.stories.tsx": require("./stories/Login.stories.tsx"),
-    "./.storybook/stories/PasswordReset.stories.tsx": require("./stories/PasswordReset.stories.tsx"),
-    "./.storybook/stories/ProgressBar.stories.tsx": require("./stories/ProgressBar.stories.tsx"),
-    "./.storybook/stories/Signup.stories.tsx": require("./stories/Signup.stories.tsx"),
-    "./.storybook/stories/UserProfile.stories.tsx": require("./stories/UserProfile.stories.tsx"),
+    "./.storybook/stories/alert.stories.tsx": require("./stories/alert.stories.tsx"),
+    "./.storybook/stories/avatar.stories.tsx": require("./stories/avatar.stories.tsx"),
+    "./.storybook/stories/badge.stories.tsx": require("./stories/badge.stories.tsx"),
+    "./.storybook/stories/box.stories.tsx": require("./stories/box.stories.tsx"),
+    "./.storybook/stories/button-group.stories.tsx": require("./stories/button-group.stories.tsx"),
+    "./.storybook/stories/button.stories.tsx": require("./stories/button.stories.tsx"),
+    "./.storybook/stories/card.stories.tsx": require("./stories/card.stories.tsx"),
+    "./.storybook/stories/icon-button.stories.tsx": require("./stories/icon-button.stories.tsx"),
+    "./.storybook/stories/image.stories.tsx": require("./stories/image.stories.tsx"),
+    "./.storybook/stories/list.stories.tsx": require("./stories/list.stories.tsx"),
+    "./.storybook/stories/login.stories.tsx": require("./stories/login.stories.tsx"),
+    "./.storybook/stories/password-reset.stories.tsx": require("./stories/password-reset.stories.tsx"),
+    "./.storybook/stories/progress-bar.stories.tsx": require("./stories/progress-bar.stories.tsx"),
+    "./.storybook/stories/signup.stories.tsx": require("./stories/signup.stories.tsx"),
+    "./.storybook/stories/text-input.stories.tsx": require("./stories/text-input.stories.tsx"),
+    "./.storybook/stories/user-profile.stories.tsx": require("./stories/user-profile.stories.tsx"),
   };
 };
 

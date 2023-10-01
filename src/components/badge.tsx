@@ -7,7 +7,12 @@ interface BadgeProps extends ViewProps {
   text: string;
 }
 
-export const Badge = ({ variant = "default", text, style }: BadgeProps) => {
+export const Badge = ({
+  variant = "default",
+  text,
+  style,
+  ...props
+}: BadgeProps) => {
   const variants = {
     default: {
       container: tailwind`bg-gray-100`,
@@ -25,6 +30,7 @@ export const Badge = ({ variant = "default", text, style }: BadgeProps) => {
 
   return (
     <View
+      {...props}
       style={[
         tailwind`h-6 px-3 justify-center rounded-full`,
         variants[variant].container,
