@@ -62,6 +62,7 @@ const getStories = () => {
     "./.storybook/stories/password-reset.stories.tsx": require("./stories/password-reset.stories.tsx"),
     "./.storybook/stories/progress-bar.stories.tsx": require("./stories/progress-bar.stories.tsx"),
     "./.storybook/stories/signup.stories.tsx": require("./stories/signup.stories.tsx"),
+    "./.storybook/stories/text-area.stories.tsx": require("./stories/text-area.stories.tsx"),
     "./.storybook/stories/text-input.stories.tsx": require("./stories/text-input.stories.tsx"),
     "./.storybook/stories/user-profile.stories.tsx": require("./stories/user-profile.stories.tsx"),
   };
