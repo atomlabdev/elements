@@ -64,6 +64,7 @@ const getStories = () => {
     "./.storybook/stories/radio-buttons.stories.tsx": require("./stories/radio-buttons.stories.tsx"),
     "./.storybook/stories/select.stories.tsx": require("./stories/select.stories.tsx"),
     "./.storybook/stories/signup.stories.tsx": require("./stories/signup.stories.tsx"),
+    "./.storybook/stories/switch.stories.tsx": require("./stories/switch.stories.tsx"),
     "./.storybook/stories/text-area.stories.tsx": require("./stories/text-area.stories.tsx"),
     "./.storybook/stories/text-input.stories.tsx": require("./stories/text-input.stories.tsx"),
     "./.storybook/stories/user-profile.stories.tsx": require("./stories/user-profile.stories.tsx"),
