@@ -29,7 +29,12 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
 *.tsbuildinfo
+
+# storybook
+build-storybook.log
+chromatic.log
