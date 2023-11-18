@@ -7,6 +7,9 @@ interface BadgeProps extends ViewProps {
   text: string;
 }
 
+/**
+ * React Native badge component built with Tailwind CSS
+ */
 export const Badge = ({
   variant = "default",
   text,

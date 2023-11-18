@@ -71,6 +71,9 @@ const ButtonGroupItem = ({
   );
 };
 
+/**
+ * React Native button group component built with Tailwind CSS
+ */
 export const ButtonGroup = ({
   items,
   selectedItem,

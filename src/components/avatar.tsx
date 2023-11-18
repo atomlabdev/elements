@@ -6,6 +6,9 @@ interface AvatarProps extends ImageProps {
   variant?: "default" | "rounded";
 }
 
+/**
+ * React Native avatar component built with Tailwind CSS
+ */
 export const Avatar = ({
   source,
   size = "sm",

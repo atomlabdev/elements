@@ -12,6 +12,9 @@ interface AlertProps extends ViewProps {
   icon?: (iconColor: string, defaultSize: number) => ReactNode;
 }
 
+/**
+ * React Native alert component built with Tailwind CSS
+ */
 export const Alert = ({
   variant = "default",
   title,

@@ -11,6 +11,9 @@ interface SwitchProps extends DefaultSwitchProps {
   containerStyle?: ViewStyle;
 }
 
+/**
+ * React Native switch component built with Tailwind CSS
+ */
 export const Switch = ({ label, containerStyle, ...props }: SwitchProps) => {
   return (
     <View style={[tailwind`flex flex-row items-center gap-4`, containerStyle]}>

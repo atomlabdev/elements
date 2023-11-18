@@ -35,6 +35,9 @@ export const CardTitle = ({ children, style, ...props }: TextProps) => {
   );
 };
 
+/**
+ * React Native card component built with Tailwind CSS
+ */
 export const Card = ({ children, style, ...props }: ViewProps) => {
   return (
     <View

@@ -8,6 +8,9 @@ type ProgressBarProps = {
   barStyle?: ViewStyle;
 };
 
+/**
+ * React Native progress bar component built with Tailwind CSS
+ */
 export const ProgressBar = ({
   variant = "default",
   progress,

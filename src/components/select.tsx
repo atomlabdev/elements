@@ -6,6 +6,9 @@ import tailwind from "twrnc";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { Platform } from "react-native";
 
+/**
+ * React Native select component built with Tailwind CSS
+ */
 export const Select = ({ style, Icon, ...props }: PickerSelectProps) => {
   const defaultInputStyle = tailwind`w-full flex flex-row items-center bg-white border border-gray-200 h-12 pl-4 pr-12 rounded-lg`;
 

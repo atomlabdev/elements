@@ -7,6 +7,9 @@ type CheckboxProps = {
   checked: boolean;
 };
 
+/**
+ * React Native checkbox component built with Tailwind CSS
+ */
 export const Checkbox = ({ onChange, checked }: CheckboxProps) => {
   const handleToggle = () => {
     onChange(!checked);

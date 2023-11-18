@@ -12,6 +12,9 @@ type ListProps = {
   data: ListItem[];
 };
 
+/**
+ * React Native list component built with Tailwind CSS
+ */
 export const List = ({
   variant = "bullet",
   data,

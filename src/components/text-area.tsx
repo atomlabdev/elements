@@ -6,6 +6,9 @@ interface TextAreaProps extends TextInputProps {
   size?: "sm" | "md" | "lg";
 }
 
+/**
+ * React Native text area component built with Tailwind CSS
+ */
 export const TextArea = ({ style, size = "md", ...props }: TextAreaProps) => {
   const [isFocused, setIsFocused] = useState(false);
 

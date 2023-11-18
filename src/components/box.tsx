@@ -5,6 +5,9 @@ interface BoxProps extends ViewProps {
   variant?: "default" | "success" | "destructive";
 }
 
+/**
+ * React Native box component built with Tailwind CSS
+ */
 export const Box = ({
   variant = "default",
   style,

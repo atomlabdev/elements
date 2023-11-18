@@ -18,6 +18,9 @@ interface ButtonProps extends PressableProps {
   iconStyle?: TextStyle;
 }
 
+/**
+ * React Native button component built with Tailwind CSS
+ */
 export const Button = ({
   text,
   icon,

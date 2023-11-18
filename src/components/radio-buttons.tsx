@@ -15,6 +15,9 @@ type RadioButtonsProps = {
   textStyle?: TextStyle;
 };
 
+/**
+ * React Native radio button component built with Tailwind CSS
+ */
 export const RadioButtons = ({
   options,
   activeItem,

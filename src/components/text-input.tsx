@@ -2,6 +2,9 @@ import { useState } from "react";
 import { TextInput as DefaultTextInput, TextInputProps } from "react-native";
 import tailwind from "twrnc";
 
+/**
+ * React Native text input component built with Tailwind CSS
+ */
 export const TextInput = (props: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 

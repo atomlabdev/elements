@@ -10,6 +10,9 @@ interface ImageProps extends DefaultImageProps {
   size?: "xs" | "sm" | "md" | "lg" | "xl";
 }
 
+/**
+ * React Native image component built with Tailwind CSS
+ */
 export const Image = ({
   variant = "default",
   size = "md",

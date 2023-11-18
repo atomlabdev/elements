@@ -38,3 +38,6 @@ yarn-error.*
 # storybook
 build-storybook.log
 chromatic.log
+
+# api folder
+api/

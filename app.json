@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
+    "scheme": "your-app-scheme",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -27,6 +28,7 @@
     },
     "experiments": {
       "tsconfigPaths": true
-    }
+    },
+    "plugins": ["expo-router"]
   }
 }

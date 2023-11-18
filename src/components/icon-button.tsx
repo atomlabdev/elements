@@ -8,6 +8,9 @@ type IconButtonProps = {
   icon: (style: TextStyle[]) => React.ReactNode;
 };
 
+/**
+ * React Native icon button component built with Tailwind CSS
+ */
 export const IconButton = ({
   icon,
   variant = "default",
