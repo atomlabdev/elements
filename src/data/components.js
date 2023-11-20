@@ -40,7 +40,17 @@ export default [
     examples: ["default", "destructive", "success", "warning"],
   },
   { name: "Radio Buttons", slug: "radio-buttons", examples: ["default"] },
+  {
+    name: "Refresh",
+    slug: "refresh",
+    examples: ["default", "button", "loading"],
+  },
   { name: "Select", slug: "select", examples: ["default"] },
+  {
+    name: "Star Rating",
+    slug: "star-rating",
+    examples: ["default", "custom-icon", "custom-scale"],
+  },
   {
     name: "Switch",
     slug: "switch",

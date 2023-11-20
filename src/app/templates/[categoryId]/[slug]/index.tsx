@@ -1,0 +1,39 @@
+import { View, Text } from "react-native";
+import {
+  useGlobalSearchParams,
+  useLocalSearchParams,
+  usePathname,
+  useSegments,
+} from "expo-router";
+import { useEffect } from "react";
+import templates from "@/data/templates";
+import { ExamplePreview } from "@/previews/ExamplePreview";
+
+export default function Page() {
+  const path = usePathname();
+  const pathArr = path.split("/").filter((s) => s !== "");
+  const categorySlug = pathArr[1];
+  const templateSlug = pathArr[2];
+
+  const component = templates.find((c) => c.slug === categorySlug);
+
+  if (!component) {
+    return (
+      <View>
+        <Text>Component not found</Text>
+      </View>
+    );
+  }
+
+  const example = component.examples.find((e) => e === templateSlug);
+
+  if (!example) {
+    return (
+      <View>
+        <Text>Example not found</Text>
+      </View>
+    );
+  }
+
+  return <ExamplePreview component={component.slug} example={example} />;
+}

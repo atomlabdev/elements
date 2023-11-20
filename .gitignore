@@ -41,3 +41,4 @@ chromatic.log
 
 # api folder
 api/
+.vercel

@@ -7,8 +7,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "build": "npx expo export -p web && node ./scripts/docgen.js",
-    "serve": "npx serve dist -l 3001"
+    "build": "expo export -p web && node ./scripts/docgen.js",
+    "serve": "npx serve dist"
   },
   "dependencies": {
     "@expo/webpack-config": "^19.0.0",

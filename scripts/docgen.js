@@ -34,12 +34,80 @@ async function exists(f) {
 
 const main = async () => {
   const paths = await globby(["./src/components/*"]);
+  const templatePaths = await globby(["./src/templates/**/*"]);
 
   const cwd = process.cwd();
 
-  // if (!fs.existsSync(`${cwd}/api/components`)) {
-  //   fs.mkdirSync(`${cwd}/api/components`);
-  // }
+  const p = `${cwd}/dist/registry`;
+  const folderExists = await exists(p);
+
+  if (!folderExists) {
+    await fs.mkdir(p);
+  }
+
+  console.log("templatePaths", templatePaths);
+
+  const templates = await Promise.all(
+    templatePaths.map(async (path) => {
+      const slug = getSlug(path);
+
+      // const examplePaths = await globby([
+      //   `./src/templates/authentication/${slug}.tsx`,
+      // ]);
+
+      // console.log("example paths", examplePaths);
+
+      // let examples = [];
+
+      // for (const examplePath of examplePaths) {
+      //   console.log("example path", examplePath);
+      //   const exampleData = await fs.readFile(examplePath, "utf-8");
+      //   const exampleSlug = getSlug(examplePath);
+      //   const exampleName = getDisplayName(exampleSlug);
+
+      //   console.log("slug", exampleSlug);
+      //   console.log("name", exampleName);
+
+      //   examples.push({
+      //     title: exampleName,
+      //     slug: exampleSlug,
+      //     url: `templates/${slug}/${exampleSlug}`,
+      //     code: JSON.stringify(exampleData),
+      //   });
+      // }
+
+      const code = await fs.readFile(
+        `./src/templates/authentication/${slug}.tsx`,
+        "utf-8"
+      );
+
+      const combined = {
+        filename: `${slug}`,
+        // description: mainComponent.description,
+        // install: JSON.stringify(data),
+        url: `templates/authentication/${slug}`,
+        code: JSON.stringify(code),
+        // components: [...parsed],
+      };
+
+      await fs.writeFile(
+        `${cwd}/dist/registry/${slug}.json`,
+        JSON.stringify(combined)
+      );
+
+      return {
+        name: slug,
+        slug,
+      };
+    })
+  );
+
+  await fs.writeFile(
+    `${cwd}/dist/registry/templates.json`,
+    JSON.stringify({
+      authentication: templates,
+    })
+  );
 
   const components = await Promise.all(
     paths.map(async (path) => {
@@ -135,7 +203,10 @@ const main = async () => {
         // components: [...parsed],
       };
 
-      await fs.writeFile(`${cwd}/dist/${slug}.json`, JSON.stringify(combined));
+      await fs.writeFile(
+        `${cwd}/dist/registry/${slug}.json`,
+        JSON.stringify(combined)
+      );
 
       return {
         name: mainComponent.displayName.replace(/([A-Z])/g, " $1").trim(),
@@ -146,7 +217,10 @@ const main = async () => {
 
   console.log("components", components);
 
-  await fs.writeFile(`${cwd}/dist/components.json`, JSON.stringify(components));
+  await fs.writeFile(
+    `${cwd}/dist/registry/components.json`,
+    JSON.stringify(components)
+  );
 };
 
 main();

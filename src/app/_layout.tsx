@@ -9,22 +9,7 @@ export default function Layout() {
   return (
     <Stack
       screenOptions={{
-        headerStyle: {
-          backgroundColor:
-            colorScheme === "dark"
-              ? tailwind.color("bg-gray-700")
-              : tailwind.color("bg-gray-50"),
-        },
-        headerTitleStyle: {
-          color:
-            colorScheme === "dark"
-              ? tailwind.color("text-white")
-              : tailwind.color("text-black"),
-        },
-        headerTintColor:
-          colorScheme === "dark"
-            ? tailwind.color("text-white")
-            : tailwind.color("text-black"),
+        headerShown: false,
         contentStyle: {
           backgroundColor:
             colorScheme === "dark"

@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "automatic",
-    "scheme": "your-app-scheme",
+    "scheme": "alelements",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -24,6 +24,7 @@
     },
     "web": {
       "bundler": "metro",
+      "output": "single",
       "favicon": "./assets/favicon.png"
     },
     "experiments": {

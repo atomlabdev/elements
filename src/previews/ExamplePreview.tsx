@@ -58,6 +58,16 @@ import { WithLabelSwitchExample } from "@/examples/components/switch/with-label"
 import { TextAreaExample } from "@/examples/components/text-area/default";
 
 import { DefaultTextInputExample } from "@/examples/components/text-input/default";
+import { Login } from "@/templates/authentication/login";
+import { Signup } from "@/templates/authentication/signup";
+import { PasswordReset } from "@/templates/authentication/reset-password";
+import { UserProfile } from "@/templates/authentication/user-profile";
+import { DefaultRefresh } from "@/examples/components/refresh/default";
+import { ButtonRefresh } from "@/examples/components/refresh/button";
+import { LoadingRefresh } from "@/examples/components/refresh/loading";
+import { DefaultStarRatingExample } from "@/examples/components/star-rating/default";
+import { CustomIconStarRatingExample } from "@/examples/components/star-rating/custom-icon";
+import { CustomScaleStarRatingExample } from "@/examples/components/star-rating/custom-scale";
 
 type ExamplePreviewProps = {
   component:
@@ -161,8 +171,20 @@ export const ExamplePreviewComponent = ({
     if (example === "default") return <RadioButtonsExample />;
   }
 
+  if (component === "refresh") {
+    if (example === "default") return <DefaultRefresh />;
+    if (example === "button") return <ButtonRefresh />;
+    if (example === "loading") return <LoadingRefresh />;
+  }
+
   if (component === "select") {
     if (example === "default") return <SelectExample />;
+  }
+
+  if (component === "star-rating") {
+    if (example === "default") return <DefaultStarRatingExample />;
+    if (example === "custom-icon") return <CustomIconStarRatingExample />;
+    if (example === "custom-scale") return <CustomScaleStarRatingExample />;
   }
 
   if (component === "switch") {
@@ -179,6 +201,13 @@ export const ExamplePreviewComponent = ({
     if (example === "default") return <DefaultTextInputExample />;
   }
 
+  if (component === "authentication") {
+    if (example === "login") return <Login />;
+    if (example === "signup") return <Signup />;
+    if (example === "reset-password") return <PasswordReset />;
+    if (example === "user-profile") return <UserProfile />;
+  }
+
   return (
     <View style={tailwind`flex-1 flex items-center justify-center`}>
       <Text>Not found</Text>
@@ -188,7 +217,11 @@ export const ExamplePreviewComponent = ({
 
 export const ExamplePreview = ({ component, example }: ExamplePreviewProps) => {
   return (
-    <View style={tailwind`flex-1 flex items-center justify-center`}>
+    <View
+      style={tailwind`flex-1 flex items-center justify-center ${
+        component === "authentication" ? "" : "p-8"
+      }`}
+    >
       <Stack.Screen
         options={{
           headerShown: false,
