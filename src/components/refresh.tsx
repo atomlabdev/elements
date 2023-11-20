@@ -1,4 +1,4 @@
-import { Animated, ViewProps, TextStyle } from "react-native";
+import { Animated, ViewProps, TextStyle, Platform } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { useEffect, useRef, useState } from "react";
 import tailwind from "twrnc";
@@ -33,7 +33,7 @@ export const Refresh = ({
       Animated.timing(animatedValue, {
         toValue: 360,
         duration: typeof speed === "number" ? speed : speeds[speed],
-        useNativeDriver: true,
+        useNativeDriver: Platform.OS !== "web",
       })
     );
 
