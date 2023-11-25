@@ -167,7 +167,7 @@ export const ExamplePreviewComponent = ({
     if (example === "warning") return <WarningProgressBarExample />;
   }
 
-  if (component === "radio-button") {
+  if (component === "radio-buttons") {
     if (example === "default") return <RadioButtonsExample />;
   }
 

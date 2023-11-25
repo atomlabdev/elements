@@ -2,6 +2,7 @@ import { Pressable, View, Text, ViewStyle, TextStyle } from "react-native";
 import tailwind from "twrnc";
 
 type RadioButtonsItem = {
+  key: string;
   label: string;
   value: string;
 };
@@ -33,6 +34,7 @@ export const RadioButtons = ({
 
         return (
           <Pressable
+            key={option.key}
             onPress={() => onSelectItem(option.value)}
             style={[tailwind`flex flex-row items-center gap-3`, itemStyle]}
           >

@@ -14,14 +14,17 @@ export const RadioButtonsExample = () => {
       onSelectItem={handleSelect}
       options={[
         {
+          key: "osaka",
           label: "Osaka",
           value: "osaka",
         },
         {
+          key: "rio-de-janeiro",
           label: "Rio De Janeiro",
           value: "rio-de-janeiro",
         },
         {
+          key: "london",
           label: "London",
           value: "london",
         },
