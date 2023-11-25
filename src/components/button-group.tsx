@@ -4,6 +4,7 @@ import tailwind from "twrnc";
 type ButtonGroupItemPosition = "first" | "middle" | "last";
 
 interface ButtonGroupItem {
+  key: string;
   value: string;
   label: string;
 }
@@ -89,6 +90,7 @@ export const ButtonGroup = ({
     <View style={tailwind`flex flex-row`}>
       {items.map((item, index) => (
         <ButtonGroupItem
+          key={item.key}
           value={item.value}
           label={item.label}
           onSelect={onSelect}
