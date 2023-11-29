@@ -5,7 +5,10 @@ import tailwind from "twrnc";
 /**
  * React Native text input component built with Tailwind CSS
  */
-export const TextInput = (props: TextInputProps) => {
+export const TextInput = ({
+  placeholderTextColor,
+  ...props
+}: TextInputProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const handleFocus = () => {
@@ -26,7 +29,9 @@ export const TextInput = (props: TextInputProps) => {
         isFocused ? tailwind`border-blue-400` : {},
         props.style,
       ]}
-      placeholderTextColor={tailwind.color("text-gray-950")}
+      placeholderTextColor={
+        placeholderTextColor || tailwind.color("text-gray-500")
+      }
     />
   );
 };

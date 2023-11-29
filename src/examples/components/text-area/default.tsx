@@ -3,5 +3,11 @@ import { useState } from "react";
 
 export const TextAreaExample = () => {
   const [value, setValue] = useState("");
-  return <TextArea value={value} onChangeText={setValue} />;
+  return (
+    <TextArea
+      value={value}
+      onChangeText={setValue}
+      placeholder="Enter text here"
+    />
+  );
 };

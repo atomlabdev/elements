@@ -9,7 +9,12 @@ interface TextAreaProps extends TextInputProps {
 /**
  * React Native text area component built with Tailwind CSS
  */
-export const TextArea = ({ style, size = "md", ...props }: TextAreaProps) => {
+export const TextArea = ({
+  style,
+  size = "md",
+  placeholderTextColor,
+  ...props
+}: TextAreaProps) => {
   const [isFocused, setIsFocused] = useState(false);
 
   const sizes = {
@@ -32,6 +37,9 @@ export const TextArea = ({ style, size = "md", ...props }: TextAreaProps) => {
       multiline
       onFocus={handleFocus}
       onEndEditing={handleEndEditing}
+      placeholderTextColor={
+        placeholderTextColor || tailwind.color("text-gray-500")
+      }
       style={[
         tailwind`w-full rounded-md bg-white border border-gray-200 p-4 text-gray-950 text-base leading-6`,
         sizes[size],
