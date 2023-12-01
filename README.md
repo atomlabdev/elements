@@ -1,3 +1,6 @@
+![Elements Logo](https://www.atomlab.dev/static/images/elements-logo-dm.svg#gh-dark-mode-only)
+![Elements Logo](https://www.atomlab.dev/static/images/elements-logo-lm.svg#gh-light-mode-only)
+
 > :construction: Please note that Elements is still a very early stage project - I'm planning on many additions and improvements over the coming months. If you encounter any problems please raise a Github issue and I'll take a look.
 
 # Atom Lab Elements
