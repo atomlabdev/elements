@@ -210,6 +210,7 @@ const main = async () => {
 
       return {
         name: mainComponent.displayName.replace(/([A-Z])/g, " $1").trim(),
+        dependencies: filteredImports,
         slug,
       };
     })
