@@ -1,3 +1,12 @@
+<div align="center">
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://www.atomlab.dev/static/images/elements-logo-dm.svg">
+  <img alt="Elements Logo'" src="https://www.atomlab.dev/static/images/elements-logo-lm.svg">
+</picture>
+</div>
+
+# Notice
+
 > :construction: Please note that Elements is still a very early stage project - I'm planning on many additions and improvements over the coming months. If you encounter any problems please raise a Github issue and I'll take a look.
 
 # Atom Lab Elements
