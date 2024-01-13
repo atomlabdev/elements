@@ -68,6 +68,7 @@ import { LoadingRefresh } from "@/examples/components/refresh/loading";
 import { DefaultStarRatingExample } from "@/examples/components/star-rating/default";
 import { CustomIconStarRatingExample } from "@/examples/components/star-rating/custom-icon";
 import { CustomScaleStarRatingExample } from "@/examples/components/star-rating/custom-scale";
+import { AlertWithCustomLayout } from "@/examples/components/alert/custom-layout";
 
 type ExamplePreviewProps = {
   component:
@@ -100,6 +101,7 @@ export const ExamplePreviewComponent = ({
 
   if (component === "alert") {
     if (example === "default") return <DefaultAlert />;
+    if (example === "custom-layout") return <AlertWithCustomLayout />;
     if (example === "error") return <ErrorAlert />;
     if (example === "success") return <SuccessAlert />;
     if (example === "warning") return <WarningAlert />;

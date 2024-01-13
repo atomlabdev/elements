@@ -1,5 +1,4 @@
 import { Alert } from "@/components/alert";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 export const ErrorAlert = () => {
   return (
@@ -7,9 +6,10 @@ export const ErrorAlert = () => {
       variant="error"
       title="Error Alert"
       description="This is an alert"
-      icon={(color, size) => (
-        <Ionicons name="alert-circle-outline" color={color} size={size} />
-      )}
+      icon={{
+        name: "alert-circle-outline",
+        type: "Ionicons",
+      }}
     />
   );
 };

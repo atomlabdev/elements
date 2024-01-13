@@ -27,6 +27,8 @@ export default function Page() {
 
   const example = component.examples.find((e) => e === exampleSlug);
 
+  console.log("finding example", component.examples, exampleSlug);
+
   if (!example) {
     return (
       <View>

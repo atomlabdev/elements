@@ -2,7 +2,7 @@ export default [
   {
     name: "Alert",
     slug: "alert",
-    examples: ["default", "error", "success", "warning"],
+    examples: ["default", "custom-layout", "error", "success", "warning"],
   },
   { name: "Avatar", slug: "avatar", examples: ["default", "rounded"] },
   {

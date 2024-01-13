@@ -1,5 +1,4 @@
 import { Alert } from "@/components/alert";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 export const WarningAlert = () => {
   return (
@@ -7,9 +6,10 @@ export const WarningAlert = () => {
       variant="warning"
       title="Warning Alert"
       description="This is an alert"
-      icon={(color, size) => (
-        <Ionicons name="warning-outline" color={color} size={size} />
-      )}
+      icon={{
+        name: "warning-outline",
+        type: "Ionicons",
+      }}
     />
   );
 };
