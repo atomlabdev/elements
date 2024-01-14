@@ -69,6 +69,9 @@ import { DefaultStarRatingExample } from "@/examples/components/star-rating/defa
 import { CustomIconStarRatingExample } from "@/examples/components/star-rating/custom-icon";
 import { CustomScaleStarRatingExample } from "@/examples/components/star-rating/custom-scale";
 import { AlertWithCustomLayout } from "@/examples/components/alert/custom-layout";
+import { IconExample } from "@/examples/components/icon/default";
+import { CustomLayoutBadgeExample } from "@/examples/components/badge/custom-layout";
+import { CustomLayoutButtonExample } from "@/examples/components/button/custom-layout";
 
 type ExamplePreviewProps = {
   component:
@@ -114,6 +117,7 @@ export const ExamplePreviewComponent = ({
 
   if (component === "badge") {
     if (example === "default") return <DefaultBadgeExample />;
+    if (example === "custom-layout") return <CustomLayoutBadgeExample />;
     if (example === "destructive") return <DestructiveBadgeExample />;
     if (example === "success") return <SuccessBadgeExample />;
   }
@@ -126,6 +130,7 @@ export const ExamplePreviewComponent = ({
 
   if (component === "button") {
     if (example === "default") return <DefaultButtonExample />;
+    if (example === "custom-layout") return <CustomLayoutButtonExample />;
     if (example === "error") return <DestructiveButtonExample />;
     if (example === "success") return <SuccessButtonExample />;
     if (example === "with-icon") return <ButtonWithIconExample />;
@@ -141,6 +146,10 @@ export const ExamplePreviewComponent = ({
 
   if (component === "checkbox") {
     if (example === "default") return <CheckboxExample />;
+  }
+
+  if (component === "icon") {
+    if (example === "default") return <IconExample />;
   }
 
   if (component === "icon-button") {

@@ -8,7 +8,7 @@ export default [
   {
     name: "Badge",
     slug: "badge",
-    examples: ["default", "destructive", "success"],
+    examples: ["default", "custom-layout", "destructive", "success"],
   },
   { name: "Box", slug: "box", examples: ["default", "destructive", "success"] },
   {
@@ -19,10 +19,15 @@ export default [
   {
     name: "Button",
     slug: "button",
-    examples: ["default", "error", "success", "with-icon"],
+    examples: ["default", "custom-layout", "error", "success", "with-icon"],
   },
   { name: "Card", slug: "card", examples: ["default"] },
   { name: "Checkbox", slug: "checkbox", examples: ["default"] },
+  {
+    name: "Icon",
+    slug: "icon",
+    examples: ["default"],
+  },
   {
     name: "Icon Button",
     slug: "icon-button",

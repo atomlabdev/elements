@@ -1,22 +1,72 @@
-import { useState } from "react";
+import { createContext, useContext, useState } from "react";
 import {
   Pressable,
   PressableProps,
   Text,
-  TextStyle,
+  View,
+  TextProps,
   ViewStyle,
 } from "react-native";
-import tailwind from "twrnc";
+import tailwind, { useAppColorScheme } from "twrnc";
+import { Icon, IconProps } from "@/components/icon";
 
 type ButtonVariant = "default" | "success" | "destructive";
 
 interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
-  icon?: (style: TextStyle[]) => React.ReactNode;
-  text: string;
-  textStyle?: TextStyle;
-  iconStyle?: TextStyle;
+  text?: string;
+  icon?: IconProps;
 }
+
+const VariantContext = createContext("default");
+
+export const ButtonText = ({ style, children }: TextProps) => {
+  const variant = useContext(VariantContext);
+
+  const variants = {
+    default: tailwind`text-neutral-50 dark:text-neutral-900`,
+    success: tailwind`text-green-50`,
+    destructive: tailwind`text-red-50`,
+  };
+
+  return (
+    <Text style={[tailwind`font-bold`, variants[variant], style]}>
+      {children}
+    </Text>
+  );
+};
+
+export const ButtonIcon = ({ name, type, color, size }: IconProps) => {
+  const [colorScheme] = useAppColorScheme(tailwind);
+  const variant = useContext(VariantContext);
+
+  const variants = {
+    default: {
+      light: tailwind.color("text-neutral-50"),
+      dark: tailwind.color("text-neutral-900"),
+    },
+    destructive: {
+      light: tailwind.color("text-red-50"),
+      dark: tailwind.color("text-red-50"),
+    },
+    success: {
+      light: tailwind.color("text-green-50"),
+      dark: tailwind.color("text-green-50"),
+    },
+  };
+
+  const defaultColor =
+    colorScheme === "dark" ? variants[variant].dark : variants[variant].light;
+
+  return (
+    <Icon
+      name={name}
+      type={type}
+      size={size || 18}
+      color={color || defaultColor}
+    />
+  );
+};
 
 /**
  * React Native button component built with Tailwind CSS
@@ -26,8 +76,7 @@ export const Button = ({
   icon,
   variant = "default",
   style,
-  textStyle,
-  iconStyle,
+  children,
   ...props
 }: ButtonProps) => {
   const [hovered, setHovered] = useState(false);
@@ -35,20 +84,47 @@ export const Button = ({
 
   const variants = {
     default: {
-      bg: tailwind`bg-gray-900 dark:bg-gray-100`,
-      hover: tailwind`bg-gray-900 dark:bg-gray-200`,
-      text: tailwind`text-gray-50 dark:text-gray-900`,
+      bg: tailwind`bg-neutral-800 dark:bg-neutral-50`,
+      hover: tailwind`bg-neutral-950 dark:bg-neutral-200`,
     },
     success: {
-      bg: tailwind`bg-green-700`,
-      hover: tailwind`bg-green-800`,
-      text: tailwind`text-green-50`,
+      bg: tailwind`bg-green-600 dark:bg-green-700`,
+      hover: tailwind`bg-green-700 dark:bg-green-800`,
     },
     destructive: {
-      bg: tailwind`bg-red-700`,
-      hover: tailwind`bg-red-800`,
-      text: tailwind`text-red-50`,
+      bg: tailwind`bg-red-600 dark:bg-red-700`,
+      hover: tailwind`bg-red-700 dark:bg-red-800`,
     },
+  };
+
+  const renderContent = () => {
+    if (icon && text) {
+      return (
+        <View style={tailwind`flex flex-row items-center gap-2`}>
+          <ButtonIcon {...icon} />
+          <ButtonText>{text}</ButtonText>
+        </View>
+      );
+    }
+
+    if (icon) {
+      return (
+        <View style={tailwind`flex flex-row items-center`}>
+          {icon ? <ButtonIcon {...icon} /> : null}
+          <>{children}</>
+        </View>
+      );
+    }
+
+    if (text) {
+      return <ButtonText>{text}</ButtonText>;
+    }
+
+    if (typeof children === "string") {
+      return <ButtonText>{children}</ButtonText>;
+    }
+
+    return <>{children}</>;
   };
 
   return (
@@ -66,14 +142,9 @@ export const Button = ({
         style as ViewStyle,
       ]}
     >
-      {icon
-        ? icon([tailwind`text-lg`, variants[variant].text, iconStyle])
-        : null}
-      {text ? (
-        <Text style={[tailwind`font-bold`, variants[variant].text, textStyle]}>
-          {text}
-        </Text>
-      ) : null}
+      <VariantContext.Provider value={variant}>
+        {renderContent()}
+      </VariantContext.Provider>
     </Pressable>
   );
 };

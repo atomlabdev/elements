@@ -36,8 +36,8 @@ export const AlertDescription = ({ style, children }: TextProps) => {
 
   const variants = {
     default: tailwind`text-neutral-950 dark:text-neutral-50`,
-    success: tailwind`text-emerald-900`,
-    warning: tailwind`text-amber-900`,
+    success: tailwind`text-green-900`,
+    warning: tailwind`text-orange-900`,
     error: tailwind`text-red-950 dark:text-red-50`,
   };
 
@@ -51,10 +51,6 @@ export const AlertDescription = ({ style, children }: TextProps) => {
 export const AlertIcon = ({ name, type, color, size }: IconProps) => {
   const [colorScheme] = useAppColorScheme(tailwind);
   const variant = useContext(VariantContext);
-
-  useEffect(() => {
-    console.log("!variant", variant);
-  }, [variant]);
 
   const variants = {
     default: {
@@ -77,10 +73,6 @@ export const AlertIcon = ({ name, type, color, size }: IconProps) => {
 
   const defaultColor =
     colorScheme === "dark" ? variants[variant].dark : variants[variant].light;
-
-  useEffect(() => {
-    console.log("default color", defaultColor);
-  }, [defaultColor]);
 
   return (
     <Icon

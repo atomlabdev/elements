@@ -5,7 +5,9 @@ import tailwind from "twrnc";
 export const DefaultBoxExample = () => {
   return (
     <Box>
-      <Text style={tailwind`text-slate-900 text-lg`}>Box</Text>
+      <Text style={tailwind`text-neutral-950 dark:text-neutral-50 text-lg`}>
+        Box
+      </Text>
     </Box>
   );
 };
