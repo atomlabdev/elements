@@ -1,5 +1,6 @@
 import { View, Pressable, Text } from "react-native";
 import tailwind from "twrnc";
+import { Button, ButtonText } from "@/components/button";
 
 type ButtonGroupItemPosition = "first" | "middle" | "last";
 
@@ -32,19 +33,8 @@ const ButtonGroupItem = ({
 }: ButtonGroupItemProps) => {
   const positions = {
     first: tailwind`rounded-l-md`,
-    middle: tailwind`border-l border-gray-200`,
-    last: tailwind`rounded-r-md border-l border-gray-200`,
-  };
-
-  const states = {
-    unselected: {
-      text: tailwind`text-gray-950`,
-      bg: tailwind`bg-gray-50`,
-    },
-    selected: {
-      text: tailwind`text-gray-50 font-bold`,
-      bg: tailwind`bg-gray-800`,
-    },
+    middle: tailwind``,
+    last: tailwind`rounded-r-md`,
   };
 
   const handleSelect = () => {
@@ -52,23 +42,13 @@ const ButtonGroupItem = ({
   };
 
   return (
-    <Pressable
+    <Button
       onPress={handleSelect}
-      style={[
-        tailwind`py-3 px-4`,
-        isSelected ? states["selected"].bg : states["unselected"].bg,
-        positions[position],
-      ]}
+      selected={isSelected}
+      style={[tailwind`rounded-none`, positions[position]]}
     >
-      <Text
-        style={[
-          tailwind`font-medium`,
-          isSelected ? states["selected"].text : states["unselected"].text,
-        ]}
-      >
-        {label}
-      </Text>
-    </Pressable>
+      <ButtonText>{label}</ButtonText>
+    </Button>
   );
 };
 

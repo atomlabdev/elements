@@ -16,6 +16,7 @@ interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
   text?: string;
   icon?: IconProps;
+  selected?: boolean;
 }
 
 const VariantContext = createContext("default");
@@ -75,6 +76,7 @@ export const Button = ({
   text,
   icon,
   variant = "default",
+  selected,
   style,
   children,
   ...props
@@ -137,7 +139,7 @@ export const Button = ({
       style={[
         tailwind`h-10 px-4 flex-row gap-2 items-center justify-center rounded-md`,
         variants[variant].bg,
-        hovered || pressed ? variants[variant].hover : null,
+        hovered || pressed || selected ? variants[variant].hover : null,
         // todo: fix ts error
         style as ViewStyle,
       ]}
