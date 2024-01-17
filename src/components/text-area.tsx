@@ -1,8 +1,8 @@
-import { useState } from "react";
-import { TextInput, TextInputProps } from "react-native";
+import { TextInputProps } from "react-native";
 import tailwind from "twrnc";
+import { TextInput } from "@/components/text-input";
 
-interface TextAreaProps extends TextInputProps {
+export interface TextAreaProps extends TextInputProps {
   size?: "sm" | "md" | "lg";
 }
 
@@ -15,37 +15,17 @@ export const TextArea = ({
   placeholderTextColor,
   ...props
 }: TextAreaProps) => {
-  const [isFocused, setIsFocused] = useState(false);
-
   const sizes = {
     sm: tailwind`h-24`,
     md: tailwind`h-36`,
     lg: tailwind`h-48`,
   };
 
-  const handleFocus = () => {
-    setIsFocused(true);
-  };
-
-  const handleEndEditing = () => {
-    setIsFocused(false);
-  };
-
   return (
     <TextInput
       {...props}
       multiline
-      onFocus={handleFocus}
-      onEndEditing={handleEndEditing}
-      placeholderTextColor={
-        placeholderTextColor || tailwind.color("text-gray-500")
-      }
-      style={[
-        tailwind`w-full rounded-md bg-white border border-gray-200 p-4 text-gray-950 text-base leading-6`,
-        sizes[size],
-        isFocused ? tailwind`border-blue-400` : {},
-        style,
-      ]}
+      style={[tailwind`py-4`, sizes[size], style]}
     />
   );
 };

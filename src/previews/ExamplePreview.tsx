@@ -72,6 +72,14 @@ import { AlertWithCustomLayout } from "@/examples/components/alert/custom-layout
 import { IconExample } from "@/examples/components/icon/default";
 import { CustomLayoutBadgeExample } from "@/examples/components/badge/custom-layout";
 import { CustomLayoutButtonExample } from "@/examples/components/button/custom-layout";
+import { LargeIconButtonExample } from "@/examples/components/icon-button/large";
+import { SmallIconButtonExample } from "@/examples/components/icon-button/small";
+import { WarningBadgeExample } from "@/examples/components/badge/warning";
+import { InfoBadgeExample } from "@/examples/components/badge/info";
+import { InfoButtonExample } from "@/examples/components/button/info";
+import { WarningButtonExample } from "@/examples/components/button/warning";
+import { WarningIconButtonExample } from "@/examples/components/icon-button/warning";
+import { InfoIconButtonExample } from "@/examples/components/icon-button/info";
 
 type ExamplePreviewProps = {
   component:
@@ -120,6 +128,8 @@ export const ExamplePreviewComponent = ({
     if (example === "custom-layout") return <CustomLayoutBadgeExample />;
     if (example === "destructive") return <DestructiveBadgeExample />;
     if (example === "success") return <SuccessBadgeExample />;
+    if (example === "warning") return <WarningBadgeExample />;
+    if (example === "info") return <InfoBadgeExample />;
   }
 
   if (component === "box") {
@@ -133,6 +143,8 @@ export const ExamplePreviewComponent = ({
     if (example === "custom-layout") return <CustomLayoutButtonExample />;
     if (example === "error") return <DestructiveButtonExample />;
     if (example === "success") return <SuccessButtonExample />;
+    if (example === "info") return <InfoButtonExample />;
+    if (example === "warning") return <WarningButtonExample />;
     if (example === "with-icon") return <ButtonWithIconExample />;
   }
 
@@ -154,8 +166,12 @@ export const ExamplePreviewComponent = ({
 
   if (component === "icon-button") {
     if (example === "default") return <DefaultIconButtonExample />;
-    if (example === "destructive") return <DestructiveButtonExample />;
-    if (example === "success") return <SuccessButtonExample />;
+    if (example === "destructive") return <DestructiveIconButtonExample />;
+    if (example === "success") return <SuccessIconButtonExample />;
+    if (example === "warning") return <WarningIconButtonExample />;
+    if (example === "info") return <InfoIconButtonExample />;
+    if (example === "large") return <LargeIconButtonExample />;
+    if (example === "small") return <SmallIconButtonExample />;
   }
 
   if (component === "image") {

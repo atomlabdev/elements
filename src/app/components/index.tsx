@@ -11,7 +11,7 @@ import components from "@/data/components";
 
 export default function Page() {
   return (
-    <View style={tailwind`p-8`}>
+    <View style={tailwind`flex-1 p-8`}>
       <Text
         style={tailwind`text-lg text-gray-950 dark:text-white font-bold mb-8`}
       >

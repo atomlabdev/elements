@@ -35,7 +35,7 @@ export const List = ({
           <View style={[tailwind`mb-2`, listItemStyle]}>
             <Text
               style={[
-                tailwind`text-lg text-gray-950 dark:text-gray-50`,
+                tailwind`text-neutral-700 dark:text-neutral-200`,
                 textStyle,
               ]}
             >{`${variants[variant]} ${item.key}`}</Text>

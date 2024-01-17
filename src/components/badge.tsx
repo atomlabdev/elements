@@ -3,7 +3,7 @@ import { View, Text, ViewProps, TextProps } from "react-native";
 import tailwind from "twrnc";
 
 interface BadgeProps extends ViewProps {
-  variant?: "default" | "success" | "destructive";
+  variant?: "default" | "success" | "destructive" | "warning" | "info";
   text?: string;
 }
 
@@ -16,6 +16,8 @@ export const BadgeText = ({ style, children }: TextProps) => {
     default: tailwind`text-neutral-950 dark:text-neutral-50`,
     success: tailwind`text-green-950 dark:text-green-50`,
     destructive: tailwind`text-red-950 dark:text-red-50`,
+    warning: tailwind`text-orange-950 dark:text-orange-50`,
+    info: tailwind`text-blue-950 dark:text-blue-50`,
   };
 
   return (
@@ -39,6 +41,8 @@ export const Badge = ({
     default: tailwind`bg-neutral-100 dark:bg-neutral-900`,
     success: tailwind`bg-green-100 dark:bg-green-900`,
     destructive: tailwind`bg-red-100 dark:bg-red-900`,
+    warning: tailwind`bg-orange-100 dark:bg-orange-900`,
+    info: tailwind`bg-blue-100 dark:bg-blue-900`,
   };
 
   const renderContent = () => {

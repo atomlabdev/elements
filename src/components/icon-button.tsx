@@ -1,11 +1,13 @@
-import { useState } from "react";
-import { Pressable, TextStyle, Text } from "react-native";
+import { ViewStyle } from "react-native";
 import tailwind from "twrnc";
+import { Button, ButtonIcon, ButtonVariant } from "@/components/button";
+import { IconProps } from "@/components/icon";
 
 type IconButtonProps = {
-  variant?: "default" | "success" | "destructive";
+  variant?: ButtonVariant;
   size?: "sm" | "md" | "lg";
-  icon: (style: TextStyle[]) => React.ReactNode;
+  icon: IconProps;
+  style?: ViewStyle;
 };
 
 /**
@@ -14,61 +16,34 @@ type IconButtonProps = {
 export const IconButton = ({
   icon,
   variant = "default",
+  style,
   size = "md",
 }: IconButtonProps) => {
-  const [hovered, setHovered] = useState(false);
-  const [pressed, setPressed] = useState(false);
-
-  const variants = {
-    default: {
-      container: tailwind`bg-gray-900 dark:bg-gray-100`,
-      hover: tailwind`bg-gray-900 dark:bg-gray-200`,
-      icon: tailwind`text-gray-50 dark:text-gray-900`,
-    },
-    success: {
-      container: tailwind`bg-green-700`,
-      hover: tailwind`bg-green-800`,
-      icon: tailwind`text-green-50`,
-    },
-    destructive: {
-      container: tailwind`bg-red-700`,
-      hover: tailwind`bg-red-800`,
-      icon: tailwind`text-red-50`,
-    },
-  };
-
   const sizes = {
     sm: {
       container: tailwind`w-10 h-10`,
-      icon: tailwind`text-lg`,
+      icon: 18,
     },
     md: {
       container: tailwind`w-14 h-14`,
-      icon: tailwind`text-2xl`,
+      icon: 24,
     },
     lg: {
       container: tailwind`w-18 h-18`,
-      icon: tailwind`text-3xl`,
+      icon: 32,
     },
   };
 
   return (
-    <Pressable
-      onHoverIn={() => setHovered(true)}
-      onHoverOut={() => setHovered(false)}
-      onPressIn={() => setPressed(true)}
-      onPressOut={() => setPressed(false)}
-      style={[
-        sizes[size].container,
-        tailwind`rounded-full items-center justify-center`,
-        hovered || pressed
-          ? variants[variant].hover
-          : variants[variant].container,
-      ]}
+    <Button
+      variant={variant}
+      style={[tailwind`rounded-full`, sizes[size].container, style]}
     >
-      <Text>
-        {icon ? icon([sizes[size].icon, variants[variant].icon]) : ""}
-      </Text>
-    </Pressable>
+      <ButtonIcon
+        name={icon.name}
+        type={icon.type}
+        size={icon.size || sizes[size].icon}
+      />
+    </Button>
   );
 };

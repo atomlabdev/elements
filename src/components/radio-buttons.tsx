@@ -40,7 +40,7 @@ export const RadioButtons = ({
           >
             <View
               style={tailwind`flex items-center justify-center border rounded-full w-6 h-6 ${
-                isActive ? `border-blue-400` : ` border-gray-200`
+                isActive ? `border-blue-400` : ` border-neutral-200`
               }`}
             >
               {isActive ? (
@@ -48,7 +48,10 @@ export const RadioButtons = ({
               ) : null}
             </View>
             <Text
-              style={[tailwind`text-gray-950 dark:text-gray-50`, textStyle]}
+              style={[
+                tailwind`text-neutral-950 dark:text-neutral-50`,
+                textStyle,
+              ]}
             >
               {option.label}
             </Text>

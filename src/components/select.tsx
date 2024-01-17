@@ -10,7 +10,7 @@ import { Platform } from "react-native";
  * React Native select component built with Tailwind CSS
  */
 export const Select = ({ style, Icon, ...props }: PickerSelectProps) => {
-  const defaultInputStyle = tailwind`w-full flex flex-row items-center bg-white border border-gray-200 h-12 pl-4 pr-12 rounded-lg`;
+  const defaultInputStyle = tailwind`w-full flex flex-row items-center bg-white border border-neutral-200 h-12 pl-4 pr-12 rounded-lg`;
 
   const combinedStyle: PickerStyle = {
     inputIOS: defaultInputStyle,
@@ -36,7 +36,7 @@ export const Select = ({ style, Icon, ...props }: PickerSelectProps) => {
           <Ionicons
             name="chevron-down"
             size={18}
-            color={tailwind.color("text-gray-950")}
+            color={tailwind.color("text-neutral-950")}
           />
         );
       }}

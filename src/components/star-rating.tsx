@@ -81,7 +81,7 @@ export const StarRating = ({
     return (
       <Text
         style={[
-          tailwind`text-xl font-bold text-gray-950 dark:text-gray-50`,
+          tailwind`text-xl font-bold text-neutral-950 dark:text-neutral-50`,
           labelStyle,
         ]}
       >
@@ -111,7 +111,7 @@ export const StarRating = ({
                   style={
                     starRating >= option
                       ? [tailwind`text-blue-400`, selectedStarStyle]
-                      : [tailwind`text-gray-400`, unselectedStarStyle]
+                      : [tailwind`text-neutral-400`, unselectedStarStyle]
                   }
                 />
               )}

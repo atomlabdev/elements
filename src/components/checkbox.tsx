@@ -17,14 +17,14 @@ export const Checkbox = ({ onChange, checked }: CheckboxProps) => {
 
   return (
     <Pressable
-      style={tailwind`flex items-center justify-center w-8 h-8 bg-gray-950 dark:bg-gray-50 rounded-md`}
+      style={tailwind`flex items-center justify-center w-8 h-8 bg-neutral-950 dark:bg-neutral-50 rounded-md`}
       onPress={handleToggle}
       role="checkbox"
     >
       {checked ? (
         <Ionicons
           name="checkmark"
-          style={tailwind`text-gray-50 dark:text-gray-950 text-2xl`}
+          style={tailwind`text-neutral-50 dark:text-neutral-950 text-2xl`}
         />
       ) : null}
     </Pressable>

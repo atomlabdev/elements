@@ -1,10 +1,5 @@
 import { IconButton } from "@/components/icon-button";
-import Ionicons from "@expo/vector-icons/Ionicons";
 
 export const DefaultIconButtonExample = () => {
-  return (
-    <IconButton
-      icon={(style) => <Ionicons name="caret-up-outline" style={style} />}
-    />
-  );
+  return <IconButton icon={{ name: "caret-up-outline", type: "Ionicons" }} />;
 };

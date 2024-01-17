@@ -65,7 +65,10 @@ export const Refresh = ({
     >
       <MaterialIcons
         name="refresh"
-        style={[tailwind`text-gray-950 dark:text-gray-50 text-3xl`, iconStyle]}
+        style={[
+          tailwind`text-neutral-950 dark:text-neutral-50 text-3xl`,
+          iconStyle,
+        ]}
       />
     </Animated.View>
   );

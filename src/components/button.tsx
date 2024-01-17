@@ -10,7 +10,12 @@ import {
 import tailwind, { useAppColorScheme } from "twrnc";
 import { Icon, IconProps } from "@/components/icon";
 
-type ButtonVariant = "default" | "success" | "destructive";
+export type ButtonVariant =
+  | "default"
+  | "success"
+  | "destructive"
+  | "info"
+  | "warning";
 
 interface ButtonProps extends PressableProps {
   variant?: ButtonVariant;
@@ -28,6 +33,8 @@ export const ButtonText = ({ style, children }: TextProps) => {
     default: tailwind`text-neutral-50 dark:text-neutral-900`,
     success: tailwind`text-green-50`,
     destructive: tailwind`text-red-50`,
+    warning: tailwind`text-orange-50`,
+    info: tailwind`text-blue-50`,
   };
 
   return (
@@ -53,6 +60,14 @@ export const ButtonIcon = ({ name, type, color, size }: IconProps) => {
     success: {
       light: tailwind.color("text-green-50"),
       dark: tailwind.color("text-green-50"),
+    },
+    warning: {
+      light: tailwind.color("text-orange-50"),
+      dark: tailwind.color("text-orange-50"),
+    },
+    info: {
+      light: tailwind.color("text-blue-50"),
+      dark: tailwind.color("text-blue-50"),
     },
   };
 
@@ -96,6 +111,14 @@ export const Button = ({
     destructive: {
       bg: tailwind`bg-red-600 dark:bg-red-700`,
       hover: tailwind`bg-red-700 dark:bg-red-800`,
+    },
+    warning: {
+      bg: tailwind`bg-orange-600 dark:bg-orange-700`,
+      hover: tailwind`bg-orange-700 dark:bg-orange-800`,
+    },
+    info: {
+      bg: tailwind`bg-blue-600 dark:bg-blue-700`,
+      hover: tailwind`bg-blue-700 dark:bg-blue-800`,
     },
   };
 

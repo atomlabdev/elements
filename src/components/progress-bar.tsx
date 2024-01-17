@@ -19,9 +19,9 @@ export const ProgressBar = ({
 }: ProgressBarProps) => {
   const variants = {
     default: tailwind`bg-blue-400`,
-    success: tailwind`bg-emerald-400`,
+    success: tailwind`bg-green-400`,
     destructive: tailwind`bg-red-400`,
-    warning: tailwind`bg-amber-400`,
+    warning: tailwind`bg-orange-400`,
   };
 
   const getWidth = () => {
@@ -38,7 +38,7 @@ export const ProgressBar = ({
 
   return (
     <View
-      style={[tailwind`h-4 bg-gray-100 rounded-full w-full`, containerStyle]}
+      style={[tailwind`h-4 bg-neutral-200 rounded-full w-full`, containerStyle]}
     >
       <View
         style={[
